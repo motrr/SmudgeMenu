@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>11D14597-150B-47D2-9F39-749045172C03</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SmudgeMenu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2002774DD4DE854F5DFDF0CBC79CD647CF56C7E2</key>
+		<string>github.com:motrr/motrr-app.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SmudgeMenu/SmudgeMenu.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2002774DD4DE854F5DFDF0CBC79CD647CF56C7E2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:motrr/motrr-app.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2002774DD4DE854F5DFDF0CBC79CD647CF56C7E2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2002774DD4DE854F5DFDF0CBC79CD647CF56C7E2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>motrr-app</string>
+		</dict>
+	</array>
+</dict>
+</plist>
