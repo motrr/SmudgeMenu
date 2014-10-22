@@ -10,9 +10,9 @@
 Pod::Spec.new do |s|
   s.name             = "SmudgeMenu"
   s.version          = "0.1.0"
-  s.summary          = "A short description of SmudgeMenu."
+  s.summary          = "A floating menu drawer and navigation element for iOS 8 and above."
   s.description      = <<-DESC
-                       An optional longer description of SmudgeMenu
+                       An optional longer description of SmudgeMenu
 
                        * Markdown format.
                        * Don't worry about the indent, we strip it!

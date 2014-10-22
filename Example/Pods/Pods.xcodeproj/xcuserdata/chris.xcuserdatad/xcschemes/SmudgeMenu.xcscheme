@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "08B88F52F325E54C7F142623"
+               BlueprintIdentifier = "DE6E81F8083788860B436173"
                BuildableName = "SmudgeMenu.bundle"
                BlueprintName = "SmudgeMenu"
                ReferencedContainer = "container:Pods.xcodeproj">
