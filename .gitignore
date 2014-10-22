@@ -1,0 +1,19 @@
+# XCode files we don't want to track #
+
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+.DS_Store
+
+# Emacs temp files #
+*~
+
+# Build and docs directories #
+build/
+docs/build/
+
+# Logfile from release script #
+logfile.log
+
+# Python precompiled files
+*.pyc

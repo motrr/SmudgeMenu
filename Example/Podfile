@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'SmudgeMenu', :exclusive => true do
+  pod "SmudgeMenu", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "SmudgeMenu", :path => "../"
+
+  pod 'Kiwi'
+  pod 'FBSnapshotTestCase'
+end
