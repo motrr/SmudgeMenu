@@ -12,12 +12,14 @@ class SMGSmudgeHandleViewController : UIViewController {
     
     var xConstraint:NSLayoutConstraint?
     var yConstraint:NSLayoutConstraint?
+    var edgeInsets = UIEdgeInsetsZero
+    
+    var delegate:SMGSmudgeHandleViewControllerDelegate?
     
     private var initDragPosition:CGPoint!
 
     override func loadView() {
         self.view = SMGSmudgeHandleView()
-        handleView.strokeWidth = 0
         handleView.delegate = self
     }
 }
@@ -26,6 +28,10 @@ extension SMGSmudgeHandleViewController : SMGSmudgeObserver {
     func didUpdateStartEndPoints( startPont:CGPoint, endPoint:CGPoint ) {
         
     }
+}
+
+protocol SMGSmudgeHandleViewControllerDelegate {
+    func handleDidMove(handle:SMGSmudgeHandleViewController)
 }
 
 extension SMGSmudgeHandleViewController : SMGDraggableViewDelegate {
@@ -40,13 +46,30 @@ extension SMGSmudgeHandleViewController : SMGDraggableViewDelegate {
  
     func viewWasDragged(translation:CGPoint) {
         if initDragPosition != nil {
-            xConstraint!.constant = initDragPosition.x + translation.x
-            yConstraint!.constant = initDragPosition.y + translation.y
+            
+            let newPosition = initDragPosition + translation
+            let adjustedNewPosition =
+                newPosition.confineToSizeWithEdgeInset(self.view.superview!.frame.size, insets: edgeInsets)
+            
+            xConstraint!.constant = adjustedNewPosition.x
+            yConstraint!.constant = adjustedNewPosition.y
+            
+            if delegate != nil { delegate!.handleDidMove(self) }
         }
     }
 
     func viewDidFinishDragging() {
         initDragPosition = nil
+        
+        let superviewWidth = self.view.superview!.frame.size.width
+        if xConstraint!.constant > superviewWidth / 2.0 {
+            xConstraint!.constant = superviewWidth - edgeInsets.right
+        }
+        else {
+            xConstraint!.constant = edgeInsets.left
+        }
+        
+        if delegate != nil { delegate!.handleDidMove(self) }
     }
 }
 
@@ -56,16 +79,7 @@ class SMGSmudgeHandleView : SMGDraggableCircleView {
         strokeWidth = 0.0
     }
     
-    override init() {
-        super.init()
-        setupSmudgeHandleView()
-    }
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupSmudgeHandleView()
-    }
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupSmudgeHandleView()
-    }
+    override init() {super.init();setupSmudgeHandleView()}
+    required init(coder aDecoder: NSCoder) {super.init(coder: aDecoder);setupSmudgeHandleView()}
+    override init(frame: CGRect) {super.init(frame: frame);setupSmudgeHandleView()}
 }

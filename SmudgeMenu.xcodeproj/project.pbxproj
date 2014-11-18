@@ -26,6 +26,7 @@
 		83AC354E1A19F3C300A9E56C /* UIView+Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC354D1A19F3C300A9E56C /* UIView+Circle.swift */; };
 		83AC35501A19F47700A9E56C /* SMGDraggableCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC354F1A19F47700A9E56C /* SMGDraggableCircle.swift */; };
 		83AE964A1A1AF5BA005FAF30 /* ConstraintMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE96491A1AF5BA005FAF30 /* ConstraintMath.swift */; };
+		83AE964E1A1B0B7F005FAF30 /* Various.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE964D1A1B0B7F005FAF30 /* Various.swift */; };
 		83E0ADC51A18A8110016C442 /* Snappy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E0ADC41A18A8110016C442 /* Snappy.framework */; };
 		83E0ADC61A18A8110016C442 /* Snappy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83E0ADC41A18A8110016C442 /* Snappy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		83E0ADD31A18A8540016C442 /* View+Snappy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0ADC81A18A8540016C442 /* View+Snappy.swift */; };
@@ -91,6 +92,7 @@
 		83AC354D1A19F3C300A9E56C /* UIView+Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Circle.swift"; sourceTree = "<group>"; };
 		83AC354F1A19F47700A9E56C /* SMGDraggableCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGDraggableCircle.swift; sourceTree = "<group>"; };
 		83AE96491A1AF5BA005FAF30 /* ConstraintMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMath.swift; sourceTree = "<group>"; };
+		83AE964D1A1B0B7F005FAF30 /* Various.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Various.swift; sourceTree = "<group>"; };
 		83E0ADC41A18A8110016C442 /* Snappy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Snappy.framework; path = "/Users/chris/Library/Developer/Xcode/DerivedData/SmudgeMenu-boahhxwtedobkmbnnmpedxwlwbic/Build/Products/Debug-iphoneos/Snappy.framework"; sourceTree = "<absolute>"; };
 		83E0ADC71A18A8540016C442 /* Snappy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snappy.h; sourceTree = "<group>"; };
 		83E0ADC81A18A8540016C442 /* View+Snappy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Snappy.swift"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				83E0ADE21A18D1780016C442 /* UIViewController+Various.swift */,
 				83AC354D1A19F3C300A9E56C /* UIView+Circle.swift */,
 				83AE96491A1AF5BA005FAF30 /* ConstraintMath.swift */,
+				83AE964D1A1B0B7F005FAF30 /* Various.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				83AC35501A19F47700A9E56C /* SMGDraggableCircle.swift in Sources */,
 				83E0ADD51A18A8540016C442 /* Constraint.swift in Sources */,
 				833B6DE519FA3943008D439D /* AppDelegate.swift in Sources */,
+				83AE964E1A1B0B7F005FAF30 /* Various.swift in Sources */,
 				8328E66A1A17274E0099C689 /* SMGModel.swift in Sources */,
 				83E0ADE11A18CD6B0016C442 /* SMGSmudgeMenuViewController.swift in Sources */,
 				83E0ADDA1A18A8540016C442 /* EdgeInsets.swift in Sources */,
