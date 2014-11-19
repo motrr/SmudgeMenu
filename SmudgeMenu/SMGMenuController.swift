@@ -32,21 +32,23 @@ class SMGMenuController : NSObject {
     var smudgeModel:SMGSmudgeModel { return model.smudgeModel }
     
     var menuItemsController:SMGMenuItemsController!
-    var smudgeController:SMGSmudgeController!
+    var smudgeHandlesController:SMGSmudgeHandlesController!
+    var smudgeCurveController:SMGSmudgeCurveController!
     
-    override init() {
+    init(menuViewController:SMGMenuViewController) {
         super.init()
         
         menuItemsController = SMGMenuItemsController(menuItemsModel: menuItemsModel)
-        smudgeController = SMGSmudgeController(smudgeModel: smudgeModel)
-        
-        menuItemsController.smudgeController = smudgeController
+        smudgeCurveController = SMGSmudgeCurveController(smudgeModel: smudgeModel)
+        smudgeHandlesController = SMGSmudgeHandlesController(smudgeModel: smudgeModel)
+
+        loadUI(menuViewController)
     }
     
-    func addObserversFrom(menuViewController:SMGMenuViewController) {
+    func loadUI(menuViewController:SMGMenuViewController) {
         
-        menuItemsController.addMenuItemsObserversFrom( menuViewController.pagesViewController )
-        smudgeController.addSmudgeObserversFrom( menuViewController.smudgeMenuViewController )
-        
+        menuItemsController.loadUI( menuViewController.pagesViewController )
+        smudgeHandlesController.loadUI( menuViewController.smudgeMenuViewController.handlesViewController )
+        smudgeCurveController.loadUI( menuViewController.smudgeMenuViewController.smudgeDebugViewController )
     }
 }

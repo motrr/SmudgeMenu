@@ -4,15 +4,7 @@
 
 import UIKit
 
-@objc protocol SMGMenuItemsObserver {
-    
-    optional func didUpdateCurrentItem( itemId:String )
-    optional func didUpdateItems( itemsDictionary:Dictionary<String, SMGMenuItemModel> )
-}
-
 class SMGMenuItemsController : NSObject {
-    
-    var smudgeController:SMGSmudgeController?
     
     var menuItemsModel:SMGMenuItemsModel
     init(menuItemsModel:SMGMenuItemsModel) {
@@ -20,20 +12,11 @@ class SMGMenuItemsController : NSObject {
         super.init()
     }
     
-    func addMenuItemsObserversFrom(pagesViewController:SMGPagesViewController) {
+    func loadUI(pagesViewController:SMGPagesViewController) {
         
     }
     
-    func addMenuItemsObserversFrom(smudgeMenuViewController:SMGSmudgeMenuViewController) {
-        
-        addMenuItemsObserver( smudgeMenuViewController )
-        
-        for (iconId, iconViewController) in smudgeMenuViewController.iconViewControllers {
-            addMenuItemsObserver( iconViewController )
-        }
-    }
-    
-    func addMenuItemsObserver( observer:SMGMenuItemsObserver ) {
+    func loadUI(smudgeMenuViewController:SMGSmudgeMenuViewController) {
         
     }
 }

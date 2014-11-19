@@ -39,10 +39,53 @@ class SMGMenuItemModel : NSObject {
 }
 
 class SMGSmudgeModel : NSObject {
+    
     var backgroundColour:UIColor = UIColor.redColor()
-    var startPoint: CGPoint = CGPoint(x: 0, y: 0)
-    var endPoint: CGPoint = CGPoint(x: 0, y: 0)
     var mainMenuIcon:SMGMainMenuIconModel?
+
+    dynamic var startPoint: CGPoint = CGPoint(x: 0, y: 0)
+    dynamic var endPoint: CGPoint = CGPoint(x: 0, y: 0)
+    
+    var curveAmount:CGFloat = 30
+    
+    /* 
+        Calculated Bezier curve control points.
+    */
+    var controlPointA:CGPoint {
+        // Watch out for case of points being equal
+        if startPoint == endPoint { return startPoint }
+        
+        // Interpolate 25% between start and finish
+        var controlPoint = startPoint.interpolate(endPoint, value:0.25)
+        var endStartSeparationDistance = (endPoint - startPoint).magnitude
+        
+        // Calculate amount to curve
+        var curveFactor = (endStartSeparationDistance / 300) * curveAmount
+        
+        // Move in direction perpendicalr to start <-> finish vector
+        var unitNormal = (endPoint - startPoint).unitNormal
+        controlPoint.x += (unitNormal.x * curveFactor)
+        controlPoint.y += (unitNormal.y * curveFactor)
+        return controlPoint
+    }
+    
+    var controlPointB:CGPoint {
+        // Watch out for case of points being equal
+        if startPoint == endPoint { return startPoint }
+        
+        // Interpolate 75% between start and finish
+        var controlPoint = startPoint.interpolate(endPoint, value:0.75)
+        var endStartSeparationDistance = (endPoint - startPoint).magnitude
+        
+        // Calculate amount to curve
+        var curveFactor = (endStartSeparationDistance / 300) * curveAmount
+        
+        // Move in direction perpendicalr to start <-> finish vector
+        var unitNormal = (endPoint-startPoint).unitNormal
+        controlPoint.x += (unitNormal.x * curveFactor)
+        controlPoint.y += (unitNormal.y * curveFactor)
+        return controlPoint
+    }
 }
 
 class SMGBarModel : NSObject {

@@ -1,10 +1,10 @@
-//  Created by Chris Harding on 07/11/2014.
+//  Created by Chris Harding on 18/11/2014.
 //  Copyright (c) 2014 Motrr. All rights reserved.
 //
 
 import UIKit
 
-class SMGDraggableCircleView : SMGDraggableView {
+class SMGCircleView : UIView {
     
     var strokeWidth:CGFloat = 1.0
     var fillColour:UIColor = UIColor.redColor()
@@ -32,5 +32,5 @@ class SMGDraggableCircleView : SMGDraggableView {
     override func drawRect(rect: CGRect) {
         self.drawRectForCircle(rect, strokeWidth:strokeWidth, fillColour:fillColour, strokeColour:strokeColour)
     }
-    
 }
+

@@ -12,6 +12,13 @@ class SMGSmudgeHandleViewController : UIViewController {
     
     var xConstraint:NSLayoutConstraint?
     var yConstraint:NSLayoutConstraint?
+    
+    var centrePointFromConstraints:CGPoint? {
+        if xConstraint != nil && yConstraint != nil {
+            return CGPoint(x: xConstraint!.constant, y: yConstraint!.constant)
+        } else { return nil }
+    }
+    
     var edgeInsets = UIEdgeInsetsZero
     
     var delegate:SMGSmudgeHandleViewControllerDelegate?
@@ -22,11 +29,12 @@ class SMGSmudgeHandleViewController : UIViewController {
         self.view = SMGSmudgeHandleView()
         handleView.delegate = self
     }
-}
-
-extension SMGSmudgeHandleViewController : SMGSmudgeObserver {
-    func didUpdateStartEndPoints( startPont:CGPoint, endPoint:CGPoint ) {
-        
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        coordinator.animateAlongsideTransition({context in
+            self.viewDidFinishDragging()
+            }, completion: nil)
     }
 }
 
@@ -53,33 +61,30 @@ extension SMGSmudgeHandleViewController : SMGDraggableViewDelegate {
             
             xConstraint!.constant = adjustedNewPosition.x
             yConstraint!.constant = adjustedNewPosition.y
-            
-            if delegate != nil { delegate!.handleDidMove(self) }
+
+            delegate?.handleDidMove(self)
         }
     }
 
     func viewDidFinishDragging() {
+        
         initDragPosition = nil
         
+        var position = CGPoint(x: xConstraint!.constant, y: yConstraint!.constant)
         let superviewWidth = self.view.superview!.frame.size.width
-        if xConstraint!.constant > superviewWidth / 2.0 {
-            xConstraint!.constant = superviewWidth - edgeInsets.right
+        
+        if position.x > superviewWidth / 2.0 {
+            position.x = superviewWidth - edgeInsets.right
         }
         else {
-            xConstraint!.constant = edgeInsets.left
+            position.x = edgeInsets.left
         }
         
-        if delegate != nil { delegate!.handleDidMove(self) }
+        let adjustedNewPosition =
+            position.confineToSizeWithEdgeInset(self.view.superview!.frame.size, insets: edgeInsets)
+        xConstraint!.constant = adjustedNewPosition.x
+        yConstraint!.constant = adjustedNewPosition.y
+        
+        delegate?.handleDidMove(self)
     }
-}
-
-class SMGSmudgeHandleView : SMGDraggableCircleView {
-    
-    func setupSmudgeHandleView() {
-        strokeWidth = 0.0
-    }
-    
-    override init() {super.init();setupSmudgeHandleView()}
-    required init(coder aDecoder: NSCoder) {super.init(coder: aDecoder);setupSmudgeHandleView()}
-    override init(frame: CGRect) {super.init(frame: frame);setupSmudgeHandleView()}
 }
