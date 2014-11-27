@@ -14,7 +14,8 @@ class SMGSmudgeIconContainerViewController : UIViewController {
 
     var iconViewController:UIViewController! {
         didSet {
-            //self.addFullscreenChildViewController(self.iconViewController)
+            self.addFullscreenChildViewController(self.iconViewController)
+            self.iconViewController.view.userInteractionEnabled = false
         }
     }
     
@@ -28,10 +29,7 @@ class SMGSmudgeIconContainerViewController : UIViewController {
     }
     
     func didTap(sender:UITapGestureRecognizer) {
-        
-        println( "Tap" )
-        
-        //currentMenuItemUpdater?.updateCurrentMenuItem(itemId)
+        currentMenuItemUpdater?.updateCurrentMenuItem(itemId)
     }
 }
 

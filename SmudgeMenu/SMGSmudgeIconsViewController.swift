@@ -56,6 +56,7 @@ extension SMGSmudgeIconsViewController : SMGMenuItemsResponder {
     func didAddMenuIcon(itemId: String, iconTitle: String, menuIcon: UIViewController) {
         
         var iconContainer = SMGSmudgeIconContainerViewController()
+        iconContainer.itemId = itemId
  
         iconContainers[itemId] = iconContainer
         self.addChildViewControllerHelper(iconContainer)
