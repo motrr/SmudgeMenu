@@ -12,28 +12,37 @@ private var uiContext = "uiContext"
 
 class SMGSmudgeHandlesController : NSObject {
     
-    var smudgeModel:SMGSmudgeModel
-    init(smudgeModel:SMGSmudgeModel) {
-        self.smudgeModel = smudgeModel
+    var model:SMGSmudgeModel
+    init(model:SMGSmudgeModel) {
+        self.model = model
         super.init()
-    }
-    
-    func loadUI(smudgeHandlesViewController:SMGSmudgeHandlesViewController) {
-        smudgeHandlesViewController.handleObserver = self
     }
 }
 
-extension SMGSmudgeHandlesController : SMGHandleObserver {
+extension SMGSmudgeHandlesController : SMGHandlesUpdater {
     
-    func didUpdateHandles(handleA: CGPoint, _ handleB: CGPoint) {
+    func updateHandles(handleA: CGPoint, _ handleB: CGPoint) {
 
+        // Update model with handle positions
         if handleA.x < handleB.x {
-            smudgeModel.startPoint = handleA
-            smudgeModel.endPoint = handleB
+            model.startPoint = handleA
+            model.endPoint = handleB
         }
         else {
-            smudgeModel.startPoint = handleB
-            smudgeModel.endPoint = handleA
+            model.startPoint = handleB
+            model.endPoint = handleA
         }
+        
+        // Update model with progress
+        var seperation = abs(handleA.x - handleB.x)
+        model.progress = (seperation - model.minX) / (model.maxX - model.minX)
+        
+    }
+    
+    func updateHandleBounds(minX: CGFloat, _ minY: CGFloat, _ maxX: CGFloat, _ maxY: CGFloat) {
+        model.minX = minX
+        model.minY = minY
+        model.maxX = maxX
+        model.maxY = maxY
     }
 }

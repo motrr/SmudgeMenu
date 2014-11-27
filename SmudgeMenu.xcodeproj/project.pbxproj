@@ -16,6 +16,7 @@
 		8329EF8E1A1C6D0400C41563 /* SMGSmudgeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329EF8D1A1C6D0400C41563 /* SMGSmudgeMenuViewController.swift */; };
 		8329EF901A1C704200C41563 /* SMGHandleHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329EF8F1A1C704200C41563 /* SMGHandleHelperView.swift */; };
 		832B57791A1C8C97001B9BF1 /* SMGPointIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832B57781A1C8C97001B9BF1 /* SMGPointIndicatorView.swift */; };
+		832B577C1A1CC962001B9BF1 /* SMGSmudgeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832B577B1A1CC962001B9BF1 /* SMGSmudgeViewController.swift */; };
 		833B6DDA19FA38D2008D439D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833B6DD919FA38D2008D439D /* Images.xcassets */; };
 		833B6DDF19FA38E9008D439D /* Icons.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833B6DDB19FA38E9008D439D /* Icons.storyboard */; };
 		833B6DE019FA38E9008D439D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833B6DDC19FA38E9008D439D /* LaunchScreen.xib */; };
@@ -23,18 +24,23 @@
 		833B6DE219FA38E9008D439D /* Pages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833B6DDE19FA38E9008D439D /* Pages.storyboard */; };
 		833B6DE519FA3943008D439D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833B6DE419FA3943008D439D /* AppDelegate.swift */; };
 		833B6DE719FA394A008D439D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833B6DE619FA394A008D439D /* ViewController.swift */; };
+		837393F21A26189700F49B23 /* SMGNoHitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837393F11A26189700F49B23 /* SMGNoHitView.swift */; };
+		839509BE1A24606A0085B91D /* SMGBezierCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839509BD1A24606A0085B91D /* SMGBezierCurve.swift */; };
+		83A888A21A1D781F00A8713C /* SMGSmudgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A888A11A1D781F00A8713C /* SMGSmudgeView.swift */; };
+		83A888A41A1DBCD500A8713C /* SMGSmudgeTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A888A31A1DBCD500A8713C /* SMGSmudgeTransitionController.swift */; };
 		83AC35461A19A40F00A9E56C /* SMGSmudgeHandlesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC35451A19A40F00A9E56C /* SMGSmudgeHandlesController.swift */; };
 		83AC35481A19B28300A9E56C /* SMGMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC35471A19B28300A9E56C /* SMGMenuViewController.swift */; };
 		83AC354A1A19BFF500A9E56C /* SMGSmudgeHandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC35491A19BFF500A9E56C /* SMGSmudgeHandleViewController.swift */; };
 		83AC354C1A19F3A300A9E56C /* SMGDraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC354B1A19F3A300A9E56C /* SMGDraggableView.swift */; };
-		83AC354E1A19F3C300A9E56C /* UIView+Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC354D1A19F3C300A9E56C /* UIView+Circle.swift */; };
-		83AC35501A19F47700A9E56C /* SMGDraggableCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC354F1A19F47700A9E56C /* SMGDraggableCircle.swift */; };
-		83AE964A1A1AF5BA005FAF30 /* ConstraintMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE96491A1AF5BA005FAF30 /* ConstraintMath.swift */; };
-		83AE964E1A1B0B7F005FAF30 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE964D1A1B0B7F005FAF30 /* Misc.swift */; };
+		83AC354E1A19F3C300A9E56C /* SMGUIView+Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC354D1A19F3C300A9E56C /* SMGUIView+Circle.swift */; };
+		83AC35501A19F47700A9E56C /* SMGDraggableCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AC354F1A19F47700A9E56C /* SMGDraggableCircleView.swift */; };
+		83AE964A1A1AF5BA005FAF30 /* SMGConstraintMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE96491A1AF5BA005FAF30 /* SMGConstraintMath.swift */; };
+		83AE964E1A1B0B7F005FAF30 /* SMGMisc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE964D1A1B0B7F005FAF30 /* SMGMisc.swift */; };
 		83AE96521A1B7B8A005FAF30 /* SMGSmudgeDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE96511A1B7B8A005FAF30 /* SMGSmudgeDebugViewController.swift */; };
 		83AE96541A1B7CA0005FAF30 /* SMGSmudgeHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE96531A1B7CA0005FAF30 /* SMGSmudgeHandleView.swift */; };
 		83AE96561A1B7CD5005FAF30 /* SMGCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE96551A1B7CD5005FAF30 /* SMGCircleView.swift */; };
 		83AE965B1A1B7D8C005FAF30 /* SMGCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AE965A1A1B7D8C005FAF30 /* SMGCurveView.swift */; };
+		83CEBAD41A248BC5006B265E /* SMGPageContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CEBAD31A248BC5006B265E /* SMGPageContainerViewController.swift */; };
 		83E0ADD31A18A8540016C442 /* View+Snappy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0ADC81A18A8540016C442 /* View+Snappy.swift */; };
 		83E0ADD41A18A8540016C442 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0ADC91A18A8540016C442 /* ConstraintMaker.swift */; };
 		83E0ADD51A18A8540016C442 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0ADCA1A18A8540016C442 /* Constraint.swift */; };
@@ -47,8 +53,13 @@
 		83E0ADDD1A18CCAB0016C442 /* SMGMenuItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0ADDC1A18CCAB0016C442 /* SMGMenuItemsController.swift */; };
 		83E0ADDF1A18CCBB0016C442 /* SMGPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0ADDE1A18CCBB0016C442 /* SMGPagesViewController.swift */; };
 		83E0ADE11A18CD6B0016C442 /* SMGSmudgeHandlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0ADE01A18CD6B0016C442 /* SMGSmudgeHandlesViewController.swift */; };
-		83E0ADE31A18D1780016C442 /* UIViewController+Various.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0ADE21A18D1780016C442 /* UIViewController+Various.swift */; };
+		83E0ADE31A18D1780016C442 /* SMGUIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E0ADE21A18D1780016C442 /* SMGUIViewController+Child.swift */; };
 		83E90A9619F511CF00C2D265 /* SmudgeMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E90A9519F511CF00C2D265 /* SmudgeMenuTests.swift */; };
+		83F345AE1A1ED9B70071BAE4 /* SMGSmudgeIconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345AD1A1ED9B70071BAE4 /* SMGSmudgeIconsViewController.swift */; };
+		83F345B01A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345AF1A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift */; };
+		83F345B31A2044C40071BAE4 /* SMGUIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345B21A2044C40071BAE4 /* SMGUIProtocols.swift */; };
+		83F345B51A21A5EA0071BAE4 /* SMGModelObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345B41A21A5EA0071BAE4 /* SMGModelObserver.swift */; };
+		83F345B71A21A8B20071BAE4 /* SMGModelObserverNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345B61A21A8B20071BAE4 /* SMGModelObserverNotifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +84,7 @@
 		8329EF8D1A1C6D0400C41563 /* SMGSmudgeMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeMenuViewController.swift; sourceTree = "<group>"; };
 		8329EF8F1A1C704200C41563 /* SMGHandleHelperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGHandleHelperView.swift; sourceTree = "<group>"; };
 		832B57781A1C8C97001B9BF1 /* SMGPointIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGPointIndicatorView.swift; sourceTree = "<group>"; };
+		832B577B1A1CC962001B9BF1 /* SMGSmudgeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeViewController.swift; sourceTree = "<group>"; };
 		833B6DD919FA38D2008D439D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		833B6DDB19FA38E9008D439D /* Icons.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Icons.storyboard; path = Resources/Icons.storyboard; sourceTree = "<group>"; };
 		833B6DDC19FA38E9008D439D /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Resources/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -81,18 +93,23 @@
 		833B6DE419FA3943008D439D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Sources/AppDelegate.swift; sourceTree = "<group>"; };
 		833B6DE619FA394A008D439D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Sources/ViewController.swift; sourceTree = "<group>"; };
 		834DE17419F51BF30098928F /* SmudgeMenu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SmudgeMenu-Bridging-Header.h"; sourceTree = "<group>"; };
+		837393F11A26189700F49B23 /* SMGNoHitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGNoHitView.swift; sourceTree = "<group>"; };
+		839509BD1A24606A0085B91D /* SMGBezierCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGBezierCurve.swift; sourceTree = "<group>"; };
+		83A888A11A1D781F00A8713C /* SMGSmudgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeView.swift; sourceTree = "<group>"; };
+		83A888A31A1DBCD500A8713C /* SMGSmudgeTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeTransitionController.swift; sourceTree = "<group>"; };
 		83AC35451A19A40F00A9E56C /* SMGSmudgeHandlesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeHandlesController.swift; sourceTree = "<group>"; };
 		83AC35471A19B28300A9E56C /* SMGMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGMenuViewController.swift; sourceTree = "<group>"; };
 		83AC35491A19BFF500A9E56C /* SMGSmudgeHandleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeHandleViewController.swift; sourceTree = "<group>"; };
 		83AC354B1A19F3A300A9E56C /* SMGDraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGDraggableView.swift; sourceTree = "<group>"; };
-		83AC354D1A19F3C300A9E56C /* UIView+Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Circle.swift"; sourceTree = "<group>"; };
-		83AC354F1A19F47700A9E56C /* SMGDraggableCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGDraggableCircle.swift; sourceTree = "<group>"; };
-		83AE96491A1AF5BA005FAF30 /* ConstraintMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMath.swift; sourceTree = "<group>"; };
-		83AE964D1A1B0B7F005FAF30 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		83AC354D1A19F3C300A9E56C /* SMGUIView+Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SMGUIView+Circle.swift"; sourceTree = "<group>"; };
+		83AC354F1A19F47700A9E56C /* SMGDraggableCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGDraggableCircleView.swift; sourceTree = "<group>"; };
+		83AE96491A1AF5BA005FAF30 /* SMGConstraintMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGConstraintMath.swift; sourceTree = "<group>"; };
+		83AE964D1A1B0B7F005FAF30 /* SMGMisc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGMisc.swift; sourceTree = "<group>"; };
 		83AE96511A1B7B8A005FAF30 /* SMGSmudgeDebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeDebugViewController.swift; sourceTree = "<group>"; };
 		83AE96531A1B7CA0005FAF30 /* SMGSmudgeHandleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeHandleView.swift; sourceTree = "<group>"; };
 		83AE96551A1B7CD5005FAF30 /* SMGCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGCircleView.swift; sourceTree = "<group>"; };
 		83AE965A1A1B7D8C005FAF30 /* SMGCurveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGCurveView.swift; sourceTree = "<group>"; };
+		83CEBAD31A248BC5006B265E /* SMGPageContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGPageContainerViewController.swift; sourceTree = "<group>"; };
 		83E0ADC41A18A8110016C442 /* Snappy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Snappy.framework; path = "/Users/chris/Library/Developer/Xcode/DerivedData/SmudgeMenu-boahhxwtedobkmbnnmpedxwlwbic/Build/Products/Debug-iphoneos/Snappy.framework"; sourceTree = "<absolute>"; };
 		83E0ADC71A18A8540016C442 /* Snappy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snappy.h; sourceTree = "<group>"; };
 		83E0ADC81A18A8540016C442 /* View+Snappy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Snappy.swift"; sourceTree = "<group>"; };
@@ -107,12 +124,17 @@
 		83E0ADDC1A18CCAB0016C442 /* SMGMenuItemsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGMenuItemsController.swift; sourceTree = "<group>"; };
 		83E0ADDE1A18CCBB0016C442 /* SMGPagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGPagesViewController.swift; sourceTree = "<group>"; };
 		83E0ADE01A18CD6B0016C442 /* SMGSmudgeHandlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeHandlesViewController.swift; sourceTree = "<group>"; };
-		83E0ADE21A18D1780016C442 /* UIViewController+Various.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Various.swift"; sourceTree = "<group>"; };
+		83E0ADE21A18D1780016C442 /* SMGUIViewController+Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SMGUIViewController+Child.swift"; sourceTree = "<group>"; };
 		83E90A7A19F511CF00C2D265 /* SmudgeMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmudgeMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E90A7E19F511CF00C2D265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83E90A8F19F511CF00C2D265 /* SmudgeMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmudgeMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83E90A9419F511CF00C2D265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83E90A9519F511CF00C2D265 /* SmudgeMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmudgeMenuTests.swift; sourceTree = "<group>"; };
+		83F345AD1A1ED9B70071BAE4 /* SMGSmudgeIconsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeIconsViewController.swift; sourceTree = "<group>"; };
+		83F345AF1A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeIconContainerViewController.swift; sourceTree = "<group>"; };
+		83F345B21A2044C40071BAE4 /* SMGUIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGUIProtocols.swift; sourceTree = "<group>"; };
+		83F345B41A21A5EA0071BAE4 /* SMGModelObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGModelObserver.swift; sourceTree = "<group>"; };
+		83F345B61A21A8B20071BAE4 /* SMGModelObserverNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGModelObserverNotifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,9 +190,12 @@
 			isa = PBXGroup;
 			children = (
 				8328E66B1A17361B0099C689 /* SMGMenuController.swift */,
+				83F345B41A21A5EA0071BAE4 /* SMGModelObserver.swift */,
+				83F345B61A21A8B20071BAE4 /* SMGModelObserverNotifier.swift */,
 				83E0ADDC1A18CCAB0016C442 /* SMGMenuItemsController.swift */,
 				83AC35451A19A40F00A9E56C /* SMGSmudgeHandlesController.swift */,
 				8329EF8B1A1C306E00C41563 /* SMGSmudgeCurveController.swift */,
+				83A888A31A1DBCD500A8713C /* SMGSmudgeTransitionController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -187,12 +212,35 @@
 		8328E6681A171F2B0099C689 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				83F345B21A2044C40071BAE4 /* SMGUIProtocols.swift */,
 				83AC35471A19B28300A9E56C /* SMGMenuViewController.swift */,
-				83E0ADDE1A18CCBB0016C442 /* SMGPagesViewController.swift */,
+				83CEBAD51A249103006B265E /* Pages */,
 				83AE96581A1B7D09005FAF30 /* Smudge Menu */,
 				83AE96591A1B7D19005FAF30 /* Bar Menu */,
+				832B577D1A1CC9A6001B9BF1 /* Common */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		832B577A1A1CC8A7001B9BF1 /* Smudge */ = {
+			isa = PBXGroup;
+			children = (
+				832B577B1A1CC962001B9BF1 /* SMGSmudgeViewController.swift */,
+				83A888A11A1D781F00A8713C /* SMGSmudgeView.swift */,
+			);
+			name = Smudge;
+			sourceTree = "<group>";
+		};
+		832B577D1A1CC9A6001B9BF1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				837393F11A26189700F49B23 /* SMGNoHitView.swift */,
+				83AE965A1A1B7D8C005FAF30 /* SMGCurveView.swift */,
+				83AC354F1A19F47700A9E56C /* SMGDraggableCircleView.swift */,
+				83AE96551A1B7CD5005FAF30 /* SMGCircleView.swift */,
+				83AC354B1A19F3A300A9E56C /* SMGDraggableView.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		833B6DE319FA38F0008D439D /* resources */ = {
@@ -214,9 +262,6 @@
 				83AC35491A19BFF500A9E56C /* SMGSmudgeHandleViewController.swift */,
 				83AE96531A1B7CA0005FAF30 /* SMGSmudgeHandleView.swift */,
 				8329EF8F1A1C704200C41563 /* SMGHandleHelperView.swift */,
-				83AC354F1A19F47700A9E56C /* SMGDraggableCircle.swift */,
-				83AE96551A1B7CD5005FAF30 /* SMGCircleView.swift */,
-				83AC354B1A19F3A300A9E56C /* SMGDraggableView.swift */,
 			);
 			name = Handles;
 			sourceTree = "<group>";
@@ -225,6 +270,8 @@
 			isa = PBXGroup;
 			children = (
 				8329EF8D1A1C6D0400C41563 /* SMGSmudgeMenuViewController.swift */,
+				83F345B11A1EDA200071BAE4 /* Icons */,
+				832B577A1A1CC8A7001B9BF1 /* Smudge */,
 				83AE965C1A1B8CF2005FAF30 /* Debugging */,
 				83AE96571A1B7CFB005FAF30 /* Handles */,
 			);
@@ -243,9 +290,17 @@
 			children = (
 				83AE96511A1B7B8A005FAF30 /* SMGSmudgeDebugViewController.swift */,
 				832B57781A1C8C97001B9BF1 /* SMGPointIndicatorView.swift */,
-				83AE965A1A1B7D8C005FAF30 /* SMGCurveView.swift */,
 			);
 			name = Debugging;
+			sourceTree = "<group>";
+		};
+		83CEBAD51A249103006B265E /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				83E0ADDE1A18CCBB0016C442 /* SMGPagesViewController.swift */,
+				83CEBAD31A248BC5006B265E /* SMGPageContainerViewController.swift */,
+			);
+			name = Pages;
 			sourceTree = "<group>";
 		};
 		83E0ADD11A18A8540016C442 /* Supporting Files */ = {
@@ -277,10 +332,11 @@
 		83E0ADE41A18D1800016C442 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				83E0ADE21A18D1780016C442 /* UIViewController+Various.swift */,
-				83AC354D1A19F3C300A9E56C /* UIView+Circle.swift */,
-				83AE96491A1AF5BA005FAF30 /* ConstraintMath.swift */,
-				83AE964D1A1B0B7F005FAF30 /* Misc.swift */,
+				83E0ADE21A18D1780016C442 /* SMGUIViewController+Child.swift */,
+				83AC354D1A19F3C300A9E56C /* SMGUIView+Circle.swift */,
+				83AE96491A1AF5BA005FAF30 /* SMGConstraintMath.swift */,
+				83AE964D1A1B0B7F005FAF30 /* SMGMisc.swift */,
+				839509BD1A24606A0085B91D /* SMGBezierCurve.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -341,6 +397,15 @@
 				83E90A9419F511CF00C2D265 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83F345B11A1EDA200071BAE4 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				83F345AD1A1ED9B70071BAE4 /* SMGSmudgeIconsViewController.swift */,
+				83F345AF1A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 		A7F7AC1833DCCDDE2ABE0879 /* Pods */ = {
@@ -490,17 +555,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83AE964A1A1AF5BA005FAF30 /* ConstraintMath.swift in Sources */,
+				83AE964A1A1AF5BA005FAF30 /* SMGConstraintMath.swift in Sources */,
 				83AC354C1A19F3A300A9E56C /* SMGDraggableView.swift in Sources */,
 				8329EF8C1A1C306E00C41563 /* SMGSmudgeCurveController.swift in Sources */,
+				83F345B71A21A8B20071BAE4 /* SMGModelObserverNotifier.swift in Sources */,
 				8329EF901A1C704200C41563 /* SMGHandleHelperView.swift in Sources */,
-				83E0ADE31A18D1780016C442 /* UIViewController+Various.swift in Sources */,
+				83CEBAD41A248BC5006B265E /* SMGPageContainerViewController.swift in Sources */,
+				83E0ADE31A18D1780016C442 /* SMGUIViewController+Child.swift in Sources */,
 				83AE96541A1B7CA0005FAF30 /* SMGSmudgeHandleView.swift in Sources */,
 				83E0ADD91A18A8540016C442 /* LayoutConstraint.swift in Sources */,
-				83AC35501A19F47700A9E56C /* SMGDraggableCircle.swift in Sources */,
+				83AC35501A19F47700A9E56C /* SMGDraggableCircleView.swift in Sources */,
+				83F345B51A21A5EA0071BAE4 /* SMGModelObserver.swift in Sources */,
 				83E0ADD51A18A8540016C442 /* Constraint.swift in Sources */,
+				83A888A41A1DBCD500A8713C /* SMGSmudgeTransitionController.swift in Sources */,
 				833B6DE519FA3943008D439D /* AppDelegate.swift in Sources */,
-				83AE964E1A1B0B7F005FAF30 /* Misc.swift in Sources */,
+				83F345B01A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift in Sources */,
+				83F345AE1A1ED9B70071BAE4 /* SMGSmudgeIconsViewController.swift in Sources */,
+				83AE964E1A1B0B7F005FAF30 /* SMGMisc.swift in Sources */,
 				83AE96561A1B7CD5005FAF30 /* SMGCircleView.swift in Sources */,
 				8328E66A1A17274E0099C689 /* SMGModel.swift in Sources */,
 				83E0ADE11A18CD6B0016C442 /* SMGSmudgeHandlesViewController.swift in Sources */,
@@ -511,8 +582,11 @@
 				833B6DE719FA394A008D439D /* ViewController.swift in Sources */,
 				83E0ADD71A18A8540016C442 /* ConstraintAttributes.swift in Sources */,
 				8328E66C1A17361B0099C689 /* SMGMenuController.swift in Sources */,
+				83A888A21A1D781F00A8713C /* SMGSmudgeView.swift in Sources */,
 				8329EF8E1A1C6D0400C41563 /* SMGSmudgeMenuViewController.swift in Sources */,
-				83AC354E1A19F3C300A9E56C /* UIView+Circle.swift in Sources */,
+				83AC354E1A19F3C300A9E56C /* SMGUIView+Circle.swift in Sources */,
+				832B577C1A1CC962001B9BF1 /* SMGSmudgeViewController.swift in Sources */,
+				83F345B31A2044C40071BAE4 /* SMGUIProtocols.swift in Sources */,
 				8328E6651A1710FE0099C689 /* PLan.swift in Sources */,
 				83E0ADD41A18A8540016C442 /* ConstraintMaker.swift in Sources */,
 				83E0ADD31A18A8540016C442 /* View+Snappy.swift in Sources */,
@@ -521,7 +595,9 @@
 				83AE96521A1B7B8A005FAF30 /* SMGSmudgeDebugViewController.swift in Sources */,
 				8328E66E1A1737200099C689 /* SMGInputModel.swift in Sources */,
 				83AE965B1A1B7D8C005FAF30 /* SMGCurveView.swift in Sources */,
+				839509BE1A24606A0085B91D /* SMGBezierCurve.swift in Sources */,
 				832B57791A1C8C97001B9BF1 /* SMGPointIndicatorView.swift in Sources */,
+				837393F21A26189700F49B23 /* SMGNoHitView.swift in Sources */,
 				83E0ADD81A18A8540016C442 /* ConstraintRelation.swift in Sources */,
 				83E0ADD61A18A8540016C442 /* ConstraintItem.swift in Sources */,
 			);

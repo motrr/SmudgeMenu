@@ -17,7 +17,13 @@ extension SMGMenuController : SMGMenu {
     }
     
     func addMenuItem(newItem:SMGMenuItemModel) {
-        menuItemsModel.itemsDictionary[newItem.itemId] = newItem
+        
+        let itemId = newItem.itemId
+        menuItemsModel.itemsDictionary[itemId] = newItem
+        menuItemsModel.newestItemId = itemId
+        if (menuItemsModel.itemsDictionary.count == 1) {
+            menuItemsModel.currentItemId = itemId
+        }
     }
     
     func selectMenuItem(itemId:String) {
@@ -34,21 +40,41 @@ class SMGMenuController : NSObject {
     var menuItemsController:SMGMenuItemsController!
     var smudgeHandlesController:SMGSmudgeHandlesController!
     var smudgeCurveController:SMGSmudgeCurveController!
+    var smudgeTransitionController:SMGSmudgeTransitionController!
     
     init(menuViewController:SMGMenuViewController) {
         super.init()
         
-        menuItemsController = SMGMenuItemsController(menuItemsModel: menuItemsModel)
-        smudgeCurveController = SMGSmudgeCurveController(smudgeModel: smudgeModel)
-        smudgeHandlesController = SMGSmudgeHandlesController(smudgeModel: smudgeModel)
+        menuItemsController = SMGMenuItemsController( model: menuItemsModel )
+        smudgeCurveController = SMGSmudgeCurveController( model: smudgeModel )
+        smudgeHandlesController = SMGSmudgeHandlesController( model: smudgeModel )
+        smudgeTransitionController = SMGSmudgeTransitionController( model: smudgeModel )
 
         loadUI(menuViewController)
     }
     
     func loadUI(menuViewController:SMGMenuViewController) {
         
-        menuItemsController.loadUI( menuViewController.pagesViewController )
-        smudgeHandlesController.loadUI( menuViewController.smudgeMenuViewController.handlesViewController )
-        smudgeCurveController.loadUI( menuViewController.smudgeMenuViewController.smudgeDebugViewController )
+        let pagesViewController = menuViewController.pagesViewController
+        let smudgeMenuViewController = menuViewController.smudgeMenuViewController
+        let iconsViewController = smudgeMenuViewController.iconsViewController
+        let smudgeDebugViewController = smudgeMenuViewController.smudgeDebugViewController
+        let smudgeView = smudgeMenuViewController.smudgeViewController.smudgeView
+        let handlesViewController = smudgeMenuViewController.handlesViewController
+        
+        menuItemsController.addResponder( iconsViewController )
+        menuItemsController.addResponder( pagesViewController )
+        
+        smudgeCurveController.addResponder( smudgeDebugViewController )
+        smudgeCurveController.addResponder( smudgeView )
+        smudgeCurveController.addResponder( iconsViewController )
+        
+        handlesViewController.handlesUpdater = smudgeHandlesController
+        
+        smudgeTransitionController.addResponder( smudgeView )
+        smudgeTransitionController.addResponder( iconsViewController )
+        
+        iconsViewController.currentMenuItemUpdater = menuItemsController
+        
     }
 }

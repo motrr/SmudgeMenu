@@ -38,20 +38,3 @@ extension SMGMenuViewController : SMGMenu {
     func addMenuItem(newItem:SMGMenuItemModel) { menuController.addMenuItem(newItem) }
     func selectMenuItem(itemId:String) { menuController.selectMenuItem(itemId) }
 }
-
-
-/*
-    These protocols are used throughout the UI layer. They qualify how non-UI controller objects should interact with the UI layer.
-*/
-
-// Responders; for sending messages TO the UI layer.
-
-protocol SMGCurveResponder {
-    func updateCurve( startPoint:CGPoint, controlPointA:CGPoint, controlPointB:CGPoint, endPoint:CGPoint )
-}
-
-// Observers; for recieving messages FROM the UI layer.
-
-protocol SMGHandleObserver {
-    func didUpdateHandles( handleA:CGPoint, _ handleB:CGPoint )
-}

@@ -4,34 +4,43 @@
 
 import UIKit
 
-typealias ConstraintPair = (x:NSLayoutConstraint, y:NSLayoutConstraint)
-
 class SMGSmudgeDebugViewController : UIViewController {
     
-    var startPointIndicatorView = SMGPointIndicatorView()
-    var controlPointAIndicatorView = SMGPointIndicatorView()
-    var controlPointBIndicatorView = SMGPointIndicatorView()
-    var endPointIndicatorView = SMGPointIndicatorView()
+    let startPointIndicatorView = SMGPointIndicatorView()
+    let controlPointAIndicatorView = SMGPointIndicatorView()
+    let controlPointBIndicatorView = SMGPointIndicatorView()
+    let endPointIndicatorView = SMGPointIndicatorView()
+    
+    let indicatorViewRadius:CGFloat = 10
+    
+    let curveView = SMGCurveView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.addSubview(curveView)
+        curveView.snp_makeConstraints { make in
+            make.edges.equalTo(self.view); return
+        }
+        curveView.radius = 5
+        
         for indicatorView in [startPointIndicatorView, controlPointAIndicatorView, controlPointBIndicatorView, endPointIndicatorView] {
             self.view.addSubview(indicatorView)
-            indicatorView.snp_makeConstraints { make in
-                make.size.equalTo(CGSize(width: 20, height: 20)); return
-            }
+            indicatorView.setTranslatesAutoresizingMaskIntoConstraints(false)
+            indicatorView.circleRadius = indicatorViewRadius
         }
     }
 }
 
 extension SMGSmudgeDebugViewController : SMGCurveResponder {
     
-    func updateCurve(startPoint: CGPoint, controlPointA: CGPoint, controlPointB: CGPoint, endPoint: CGPoint) {
+    func didUpdateCurve(curve: SMGBezierCurve) {
 
-        startPointIndicatorView.center = startPoint
-        controlPointAIndicatorView.center = controlPointA
-        controlPointBIndicatorView.center = controlPointB
-        endPointIndicatorView.center = endPoint
+        startPointIndicatorView.center = curve.a
+        controlPointAIndicatorView.center = curve.b
+        controlPointBIndicatorView.center = curve.c
+        endPointIndicatorView.center = curve.d
+        
+        curveView.didUpdateCurve(curve)
     }
 }

@@ -22,8 +22,10 @@ class SMGModel : NSObject {
 }
 
 class SMGMenuItemsModel : NSObject {
-    var currentItemId:String?
+    dynamic var currentItemId:String?
+    dynamic var newestItemId:String?
     var itemsDictionary:Dictionary<String, SMGMenuItemModel> = Dictionary<String, SMGMenuItemModel>()
+    
 }
 
 class SMGMenuItemModel : NSObject {
@@ -46,7 +48,17 @@ class SMGSmudgeModel : NSObject {
     dynamic var startPoint: CGPoint = CGPoint(x: 0, y: 0)
     dynamic var endPoint: CGPoint = CGPoint(x: 0, y: 0)
     
-    var curveAmount:CGFloat = 30
+    dynamic var minX:CGFloat = 0
+    dynamic var minY:CGFloat = 0
+    dynamic var maxX:CGFloat = 0
+    dynamic var maxY:CGFloat = 0
+    
+    dynamic var progress:CGFloat = 0
+    
+    var bezierCurve:SMGBezierCurve {
+        return SMGBezierCurve(startPoint,controlPointA,controlPointB,endPoint)
+    }
+    var curveAmount:CGFloat = 50
     
     /* 
         Calculated Bezier curve control points.
@@ -60,7 +72,7 @@ class SMGSmudgeModel : NSObject {
         var endStartSeparationDistance = (endPoint - startPoint).magnitude
         
         // Calculate amount to curve
-        var curveFactor = (endStartSeparationDistance / 300) * curveAmount
+        var curveFactor = squared(endStartSeparationDistance / 300) * curveAmount
         
         // Move in direction perpendicalr to start <-> finish vector
         var unitNormal = (endPoint - startPoint).unitNormal
@@ -78,13 +90,17 @@ class SMGSmudgeModel : NSObject {
         var endStartSeparationDistance = (endPoint - startPoint).magnitude
         
         // Calculate amount to curve
-        var curveFactor = (endStartSeparationDistance / 300) * curveAmount
+        var curveFactor = squared(endStartSeparationDistance / 300) * curveAmount
         
         // Move in direction perpendicalr to start <-> finish vector
         var unitNormal = (endPoint-startPoint).unitNormal
         controlPoint.x += (unitNormal.x * curveFactor)
         controlPoint.y += (unitNormal.y * curveFactor)
         return controlPoint
+    }
+    
+    func squared(a:CGFloat) -> CGFloat {
+        return a*a
     }
 }
 

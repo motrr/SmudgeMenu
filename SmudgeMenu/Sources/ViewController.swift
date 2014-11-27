@@ -11,7 +11,12 @@ class ViewController: UIViewController {
         
         var menu = SMGMenuViewController()
         self.addFullscreenChildViewController(menu)
-
+        
+        for sharedId in ["PageA","PageB","PageC","PageD"] {
+            var page = SMGPageModel(storyboardId:"Pages", viewControllerId:sharedId )
+            var icon = SMGIconModel(storyboardId:"Icons", viewControllerId:sharedId )
+            var item = SMGMenuItemModel(itemId: sharedId, pageModel:page, iconModel: icon)
+            menu.addMenuItem( item )
+        }
     }
 }
-

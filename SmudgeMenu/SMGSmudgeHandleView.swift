@@ -7,8 +7,8 @@ import UIKit
 class SMGSmudgeHandleView : SMGDraggableCircleView {
     
     func setupSmudgeHandleView() {
-        strokeWidth = 0.0
-        fillColour = UIColor.darkGrayColor()
+        strokeColour = UIColor.clearColor()
+        fillColour = UIColor.clearColor()
         alpha = 0.3
     }
     

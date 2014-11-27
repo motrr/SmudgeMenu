@@ -11,18 +11,12 @@ class SMGCurveView : UIView {
     var controlPointB:CGPoint = CGPoint(x: 300, y: 100)
     var endPoint:CGPoint = CGPoint(x: 300, y: 200)
     
-    var progress:CGFloat = 0
-    
     var colour:UIColor = UIColor.greenColor()
     var radius:CGFloat = 10
     var diameter:CGFloat {
         get {return 2*radius}
         set {radius = diameter/2}
     }
-    
-    let boundingBoxMargin:CGFloat = 40
-    let minRadius:CGFloat = 40
-    let maxRadius:CGFloat = 70
     
     override init() {
         super.init()
@@ -69,17 +63,18 @@ class SMGCurveView : UIView {
         CGContextSetAllowsAntialiasing(context, false)
         CGContextRestoreGState(context)
     }
-    
 }
 
-extension SMGCurveView {
+
+extension SMGCurveView : SMGCurveResponder {
     
-    func didUpdateCurve() {
+    func didUpdateCurve(curve: SMGBezierCurve) {
+
+        self.startPoint = curve.a
+        self.controlPointA = curve.b
+        self.controlPointB = curve.c
+        self.endPoint = curve.d
         
-        // Adjust parameters according to transition progress
-        self.radius = minRadius + (maxRadius - minRadius) * progress
-        
-        // Redraw the smudge shape
         self.setNeedsDisplay()
     }
 }

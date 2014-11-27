@@ -7,7 +7,8 @@ import UIKit
 class SMGHandleHelperView : SMGCircleView {
     
     func setupPointView() {
-        fillColour = UIColor.blueColor()
+        strokeColour = UIColor.clearColor()
+        fillColour = UIColor.clearColor()
     }
     
     override init() {super.init();setupPointView()}

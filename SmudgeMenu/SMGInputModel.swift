@@ -19,7 +19,7 @@ class SMGStoryboardVCModel : NSObject {
 
 class SMGPageModel : SMGStoryboardVCModel {}
 class SMGIconModel : SMGStoryboardVCModel {
-    var titleText:String!
+    var titleText:String = ""
 }
 
 class SMGMainMenuIconModel : SMGStoryboardVCModel {}
