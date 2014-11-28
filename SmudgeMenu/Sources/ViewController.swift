@@ -18,5 +18,8 @@ class ViewController: UIViewController {
             var item = SMGMenuItemModel(itemId: sharedId, pageModel:page, iconModel: icon)
             menu.addMenuItem( item )
         }
+        
+        var mainMenuIconModel = SMGMainMenuIconModel(storyboardId:"Icons", viewControllerId:"MainMenu")
+        menu.setMainMenuIcon( mainMenuIconModel )
     }
 }

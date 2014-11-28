@@ -11,7 +11,7 @@ import UIKit
 class SMGMenuItemsController : SMGModelObserverNotifier {
     
     override func keyPaths() -> [String] {
-        return ["currentItemId", "newestItemId"]
+        return ["currentItemId", "newestItemId", "mainMenuIcon"]
     }
     
     override func initialiseResponder(responder: SMGResponder) {
@@ -42,7 +42,13 @@ class SMGMenuItemsController : SMGModelObserverNotifier {
                 menuItemsResponder.didAddMenuIcon?(newestItemId!, iconTitle:newestItemTitleText , menuIcon: newestItemIconViewController)
                 menuItemsResponder.didAddMenuPage?(newestItemId!, menuPage: newestItemPageViewController)
             }
-
+        
+        case "mainMenuIcon" :
+            if menuItemsModel.mainMenuIcon != nil {
+                var mainMenuIcon = generateMainMenuIconViewController(menuItemsModel.mainMenuIcon!)
+                menuItemsResponder.didSetMainMenuIcon?(mainMenuIcon)
+            }
+            
         default : ()
         }
     }
@@ -63,10 +69,18 @@ class SMGMenuItemsController : SMGModelObserverNotifier {
         return generateViewController(storyboardId, viewControllerId: pageId)
     }
     
+    func generateMainMenuIconViewController(mainMenuIconModel:SMGMainMenuIconModel) -> UIViewController {
+        
+        var storyboardId = mainMenuIconModel.storyboardId
+        var iconId = mainMenuIconModel.viewControllerId
+        
+        return generateViewController(storyboardId, viewControllerId: iconId)
+    }
+    
     func generateViewController(storyboardId:String, viewControllerId:String) -> UIViewController {
         var storyboard = UIStoryboard(name:storyboardId , bundle: NSBundle.mainBundle())
-        var iconViewController = storyboard.instantiateViewControllerWithIdentifier(viewControllerId) as UIViewController
-        return iconViewController
+        var viewController = storyboard.instantiateViewControllerWithIdentifier(viewControllerId) as UIViewController
+        return viewController
     }
 }
 

@@ -4,20 +4,10 @@
 
 import UIKit
 
-class SMGSmudgeIconContainerViewController : UIViewController {
+class SMGSmudgeIconContainerViewController : SMGIconContainerViewController {
     
     var currentMenuItemUpdater:SMGCurrentMenuItemUpdater?
     var itemId:String!
-    
-    var xConstraint:NSLayoutConstraint!
-    var yConstraint:NSLayoutConstraint!
-
-    var iconViewController:UIViewController! {
-        didSet {
-            self.addFullscreenChildViewController(self.iconViewController)
-            self.iconViewController.view.userInteractionEnabled = false
-        }
-    }
     
     var tapGesture: UITapGestureRecognizer!
     

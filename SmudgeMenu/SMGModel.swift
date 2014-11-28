@@ -22,13 +22,15 @@ class SMGModel : NSObject {
 }
 
 class SMGMenuItemsModel : NSObject {
+    
     dynamic var currentItemId:String?
     dynamic var newestItemId:String?
     var itemsDictionary:Dictionary<String, SMGMenuItemModel> = Dictionary<String, SMGMenuItemModel>()
-    
+    dynamic var mainMenuIcon:SMGMainMenuIconModel?
 }
 
 class SMGMenuItemModel : NSObject {
+    
     var itemId:String
     var pageModel:SMGPageModel
     var iconModel:SMGIconModel
@@ -43,7 +45,6 @@ class SMGMenuItemModel : NSObject {
 class SMGSmudgeModel : NSObject {
     
     var backgroundColour:UIColor = UIColor.redColor()
-    var mainMenuIcon:SMGMainMenuIconModel?
 
     dynamic var startPoint: CGPoint = CGPoint(x: 0, y: 0)
     dynamic var endPoint: CGPoint = CGPoint(x: 0, y: 0)

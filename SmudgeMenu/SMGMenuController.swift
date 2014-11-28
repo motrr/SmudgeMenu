@@ -10,27 +10,6 @@ protocol SMGMenu {
     func selectMenuItem(itemId:String)
 }
 
-extension SMGMenuController : SMGMenu {
-    
-    func setMainMenuIcon(icon: SMGMainMenuIconModel) {
-        smudgeModel.mainMenuIcon = icon
-    }
-    
-    func addMenuItem(newItem:SMGMenuItemModel) {
-        
-        let itemId = newItem.itemId
-        menuItemsModel.itemsDictionary[itemId] = newItem
-        menuItemsModel.newestItemId = itemId
-        if (menuItemsModel.itemsDictionary.count == 1) {
-            menuItemsModel.currentItemId = itemId
-        }
-    }
-    
-    func selectMenuItem(itemId:String) {
-        menuItemsModel.currentItemId = itemId
-    }
-}
-
 class SMGMenuController : NSObject {
     
     let model = SMGModel()
@@ -76,5 +55,26 @@ class SMGMenuController : NSObject {
         
         iconsViewController.currentMenuItemUpdater = menuItemsController
         
+    }
+}
+
+extension SMGMenuController : SMGMenu {
+    
+    func setMainMenuIcon(icon: SMGMainMenuIconModel) {
+        menuItemsModel.mainMenuIcon = icon
+    }
+    
+    func addMenuItem(newItem:SMGMenuItemModel) {
+        
+        let itemId = newItem.itemId
+        menuItemsModel.itemsDictionary[itemId] = newItem
+        menuItemsModel.newestItemId = itemId
+        if (menuItemsModel.itemsDictionary.count == 1) {
+            menuItemsModel.currentItemId = itemId
+        }
+    }
+    
+    func selectMenuItem(itemId:String) {
+        menuItemsModel.currentItemId = itemId
     }
 }
