@@ -9,7 +9,7 @@ class SMGSmudgeIconsViewController : UIViewController {
     var maxIconSize = CGSize(width:100, height:80)
     var maxCurveWidth:CGFloat = 0
     var curve:SMGBezierCurve!
-    var iconContainers:Dictionary<String, SMGSmudgeIconContainerViewController> = Dictionary<String, SMGSmudgeIconContainerViewController>()
+    var iconContainers:[SMGSmudgeIconContainerViewController] = Array<SMGSmudgeIconContainerViewController>()
     
     override func loadView() {
         self.view = SMGNoHitView()
@@ -17,7 +17,7 @@ class SMGSmudgeIconsViewController : UIViewController {
     
     var currentMenuItemUpdater:SMGCurrentMenuItemUpdater? {
         didSet {
-            for (itemId, iconContainer) in iconContainers {
+            for iconContainer in iconContainers {
                 iconContainer.currentMenuItemUpdater = self.currentMenuItemUpdater
             }
         }
@@ -29,7 +29,7 @@ class SMGSmudgeIconsViewController : UIViewController {
         var iconWidthFromCurveWidth:CGFloat = maxCurveWidth / CGFloat(widthDivisor)
         var iconWidth:CGFloat = min(maxIconSize.width, iconWidthFromCurveWidth)
         
-        for (itemId, iconContainer) in iconContainers {
+        for iconContainer in iconContainers {
 
             iconContainer.view.snp_remakeConstraints() { make in
                 make.width.equalTo( iconWidth )
@@ -40,10 +40,9 @@ class SMGSmudgeIconsViewController : UIViewController {
     
     func updateIconPositions() {
         
-        for (index, element) in enumerate(iconContainers) {
+        for (index, iconContainer) in enumerate(iconContainers) {
              
             var position = curve.interpolateElementPosition(index, elementCount: iconContainers.count)
-            var iconContainer = element.1
             iconContainer.xConstraint.constant = position.x
             iconContainer.yConstraint.constant = position.y
         }
@@ -58,7 +57,7 @@ extension SMGSmudgeIconsViewController : SMGMenuItemsResponder {
         var iconContainer = SMGSmudgeIconContainerViewController()
         iconContainer.itemId = itemId
  
-        iconContainers[itemId] = iconContainer
+        iconContainers.append( iconContainer )
         self.addChildViewControllerHelper(iconContainer)
         
         iconContainer.xConstraint = centerX(iconContainer.view) => left(self.view)
@@ -92,7 +91,7 @@ extension SMGSmudgeIconsViewController : SMGCurveResponder {
 extension SMGSmudgeIconsViewController : SMGTransitionResponder {
     
     func didUpdateTransitionProgress(newProgress: CGFloat) {
-        for (itemId, iconContainer) in iconContainers {
+        for iconContainer in iconContainers {
             iconContainer.didUpdateTransitionProgress(newProgress)
         }
     }

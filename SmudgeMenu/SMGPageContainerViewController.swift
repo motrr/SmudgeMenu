@@ -6,6 +6,8 @@ import UIKIt
 
 class SMGPageContainerViewController : UIViewController {
     
+    var itemId:String!
+    
     var pageViewController:UIViewController! {
         didSet {
             self.addFullscreenChildViewController(self.pageViewController)

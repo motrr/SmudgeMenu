@@ -52,7 +52,7 @@ class SMGSmudgeMenuViewController : UIViewController {
     
     func didTap(sender:UITapGestureRecognizer) {
         
-        for (itemIndex, iconContainer) in iconsViewController.iconContainers {
+        for iconContainer in iconsViewController.iconContainers {
             
             let tapLocation = sender.locationInView(iconContainer.view)
             if iconContainer.view.hitTest(tapLocation, withEvent: nil) == iconContainer.view {
