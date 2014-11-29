@@ -14,7 +14,7 @@ These protocols are used throughout the UI layer. They qualify how non-UI contro
 
 @objc protocol SMGMenuItemsResponder : SMGResponder {
     optional func didUpdateCurrentMenuItem( newItemId:String )
-    optional func didAddMenuIcon(itemId:String, iconTitle:String, menuIcon:UIViewController )
+    optional func didAddMenuIcon(itemId:String, iconTitle:String, iconFont:UIFont, menuIcon:UIViewController )
     optional func didAddMenuPage(itemId:String, menuPage:UIViewController )
     optional func didSetMainMenuIcon(mainMenuIcon:UIViewController )
 }

@@ -8,12 +8,4 @@ class SMGIconContainerViewController : UIViewController {
     
     var xConstraint:NSLayoutConstraint!
     var yConstraint:NSLayoutConstraint!
-    
-    var iconViewController:UIViewController! {
-        didSet {
-            self.addFullscreenChildViewController(self.iconViewController)
-            self.iconViewController.view.userInteractionEnabled = false
-        }
-    }
-    
 }

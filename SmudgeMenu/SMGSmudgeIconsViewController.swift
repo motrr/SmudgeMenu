@@ -8,7 +8,7 @@ class SMGSmudgeIconsViewController : UIViewController {
     
     var mainMenuIconSize = CGSize(width:30, height:30)
     
-    var maxIconSize = CGSize(width:100, height:80)
+    var maxIconSize = CGSize(width:100, height:100)
     var maxCurveWidth:CGFloat = 0
     var curve:SMGBezierCurve!
     var iconContainers:[SMGSmudgeIconContainerViewController] = Array<SMGSmudgeIconContainerViewController>()
@@ -58,7 +58,7 @@ class SMGSmudgeIconsViewController : UIViewController {
 
 extension SMGSmudgeIconsViewController : SMGMenuItemsResponder {
     
-    func didAddMenuIcon(itemId: String, iconTitle: String, menuIcon: UIViewController) {
+    func didAddMenuIcon(itemId: String, iconTitle: String, iconFont:UIFont, menuIcon: UIViewController) {
         
         var iconContainer = SMGSmudgeIconContainerViewController()
         iconContainer.itemId = itemId
@@ -73,7 +73,7 @@ extension SMGSmudgeIconsViewController : SMGMenuItemsResponder {
             make.height.equalTo( self.maxIconSize.height )
         }
         
-        iconContainer.iconViewController = menuIcon
+        iconContainer.setIcon(menuIcon, title: iconTitle, font:iconFont)
         iconContainer.currentMenuItemUpdater = self.currentMenuItemUpdater
         
         updateIconSizes()

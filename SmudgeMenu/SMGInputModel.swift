@@ -2,7 +2,7 @@
 //  Copyright (c) 2014 Motrr. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /*
     These model objects are created, configured and then passed to the menu during and afer initilisation. The are used by the menu to construct it's MVC hierarchy.
@@ -19,6 +19,7 @@ class SMGStoryboardVCModel : NSObject {
 
 class SMGPageModel : SMGStoryboardVCModel {}
 class SMGIconModel : SMGStoryboardVCModel {
+    var titleFont:UIFont = UIFont.systemFontOfSize(UIFont.systemFontSize())
     var titleText:String = ""
 }
 

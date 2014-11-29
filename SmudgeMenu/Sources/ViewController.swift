@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         for sharedId in ["PageA","PageB","PageC","PageD"] {
             var page = SMGPageModel(storyboardId:"Pages", viewControllerId:sharedId )
             var icon = SMGIconModel(storyboardId:"Icons", viewControllerId:sharedId )
+            icon.titleText = "Sample Text"
             var item = SMGMenuItemModel(itemId: sharedId, pageModel:page, iconModel: icon)
             menu.addMenuItem( item )
         }

@@ -6,6 +6,12 @@ import UIKit
 
 class SMGMainMenuIconContainerViewController : SMGIconContainerViewController {
     
+    var iconViewController:UIViewController! {
+        didSet {
+            self.addFullscreenChildViewController(self.iconViewController)
+            self.iconViewController.view.userInteractionEnabled = false
+        }
+    }
 }
 
 extension SMGMainMenuIconContainerViewController : SMGTransitionResponder {

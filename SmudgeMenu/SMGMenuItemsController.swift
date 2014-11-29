@@ -36,10 +36,11 @@ class SMGMenuItemsController : SMGModelObserverNotifier {
                 
                 var newestItemModel = itemsDictionary[newestItemId!]!
                 var newestItemTitleText = newestItemModel.iconModel.titleText
+                var newestItemTitleFont = newestItemModel.iconModel.titleFont
                 var newestItemIconViewController = generateIconViewController(newestItemModel)
                 var newestItemPageViewController = generatePageViewController(newestItemModel)
                 
-                menuItemsResponder.didAddMenuIcon?(newestItemId!, iconTitle:newestItemTitleText , menuIcon: newestItemIconViewController)
+                menuItemsResponder.didAddMenuIcon?(newestItemId!, iconTitle:newestItemTitleText, iconFont:newestItemTitleFont, menuIcon: newestItemIconViewController)
                 menuItemsResponder.didAddMenuPage?(newestItemId!, menuPage: newestItemPageViewController)
             }
         
