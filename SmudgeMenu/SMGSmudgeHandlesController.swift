@@ -34,9 +34,9 @@ extension SMGSmudgeHandlesController : SMGHandlesUpdater {
         }
         
         // Update model with progress
-        var seperation = abs(handleA.x - handleB.x)
-        model.progress = (seperation - model.minX) / (model.maxX - model.minX)
-        
+        let seperation = abs(handleA.x - handleB.x)
+        let maxSeperation = abs(model.minX - model.maxX)
+        model.progress = seperation / maxSeperation
     }
     
     func updateHandleBounds(minX: CGFloat, _ minY: CGFloat, _ maxX: CGFloat, _ maxY: CGFloat) {

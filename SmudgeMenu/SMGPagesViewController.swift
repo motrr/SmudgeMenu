@@ -12,6 +12,15 @@ class SMGPagesViewController : UIViewController {
     var transitionInProgress = false
 }
 
+extension SMGPagesViewController : SMGTransitionResponder {
+    
+    func didUpdateTransitionProgress(newProgress: CGFloat) {
+        for (itemId, pageContainer) in pageContainers {
+            pageContainer.didUpdateTransitionProgress(newProgress)
+        }
+    }
+}
+
 extension SMGPagesViewController : SMGMenuItemsResponder {
     
     func didUpdateCurrentMenuItem(newItemId: String) {

@@ -84,3 +84,10 @@ extension CGPoint {
         return interpolatedPoint
     }
 }
+
+extension CGFloat {
+    
+    static func interpolate(t:CGFloat, min:CGFloat, max:CGFloat) -> CGFloat {
+        return min + (t * (max - min))
+    }
+}

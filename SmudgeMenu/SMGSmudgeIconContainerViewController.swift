@@ -48,11 +48,6 @@ class SMGSmudgeIconContainerViewController : SMGIconContainerViewController {
             make.left.right.and.bottom.equalTo(self.view)
             return
         }
-        
-        self.view.setNeedsUpdateConstraints()
-        self.view.setNeedsLayout()
-        
-        println( iconTitleLabel.frame )
     }
 }
 

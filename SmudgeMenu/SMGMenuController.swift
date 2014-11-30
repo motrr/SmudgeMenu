@@ -52,6 +52,7 @@ class SMGMenuController : NSObject {
         
         smudgeTransitionController.addResponder( smudgeView )
         smudgeTransitionController.addResponder( iconsViewController )
+        smudgeTransitionController.addResponder( pagesViewController )
         
         iconsViewController.currentMenuItemUpdater = menuItemsController
         
