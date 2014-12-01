@@ -43,19 +43,19 @@ class SMGMenuController : NSObject {
         
         menuItemsController.addResponder( iconsViewController )
         menuItemsController.addResponder( pagesViewController )
+        iconsViewController.currentMenuItemUpdater = menuItemsController
         
         smudgeCurveController.addResponder( smudgeDebugViewController )
         smudgeCurveController.addResponder( smudgeView )
         smudgeCurveController.addResponder( iconsViewController )
-        
         handlesViewController.handlesUpdater = smudgeHandlesController
         
+        smudgeHandlesController.addResponder( handlesViewController )
+        iconsViewController.openCloseUpdater = smudgeHandlesController
+
         smudgeTransitionController.addResponder( smudgeView )
         smudgeTransitionController.addResponder( iconsViewController )
         smudgeTransitionController.addResponder( pagesViewController )
-        
-        iconsViewController.currentMenuItemUpdater = menuItemsController
-        
     }
 }
 

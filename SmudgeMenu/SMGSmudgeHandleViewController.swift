@@ -14,9 +14,17 @@ class SMGSmudgeHandleViewController : UIViewController {
     var yConstraint:NSLayoutConstraint?
     
     var centrePointFromConstraints:CGPoint? {
-        if xConstraint != nil && yConstraint != nil {
-            return CGPoint(x: xConstraint!.constant, y: yConstraint!.constant)
-        } else { return nil }
+        get {
+            if xConstraint != nil && yConstraint != nil {
+                return CGPoint(x: xConstraint!.constant, y: yConstraint!.constant)
+            } else { return nil }
+        }
+        set {
+            if newValue != nil && xConstraint != nil && yConstraint != nil {
+                xConstraint?.constant = newValue!.x
+                yConstraint?.constant = newValue!.y
+            }
+        }
     }
     
     var edgeInsets = UIEdgeInsetsZero
@@ -40,6 +48,7 @@ class SMGSmudgeHandleViewController : UIViewController {
 
 protocol SMGSmudgeHandleViewControllerDelegate {
     func handleDidMove(handle:SMGSmudgeHandleViewController)
+    func handleDidFinishMoving(handle:SMGSmudgeHandleViewController)
 }
 
 extension SMGSmudgeHandleViewController : SMGDraggableViewDelegate {
@@ -85,6 +94,6 @@ extension SMGSmudgeHandleViewController : SMGDraggableViewDelegate {
         xConstraint!.constant = adjustedNewPosition.x
         yConstraint!.constant = adjustedNewPosition.y
         
-        delegate?.handleDidMove(self)
+        delegate?.handleDidFinishMoving(self)
     }
 }

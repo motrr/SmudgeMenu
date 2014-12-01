@@ -6,6 +6,8 @@ import UIKit
 
 class SMGMainMenuIconContainerViewController : SMGIconContainerViewController {
     
+    var openCloseUpdater:SMGSmudgeOpenCloseUpdater?
+    
     var iconViewController:UIViewController! {
         didSet {
             self.addChildViewControllerHelper(self.iconViewController)
@@ -14,7 +16,7 @@ class SMGMainMenuIconContainerViewController : SMGIconContainerViewController {
     }
     
     override func didTap(tg: UITapGestureRecognizer) {
-        println( "Tapped main menu" )
+        openCloseUpdater?.openHandles()
     }
 }
 

@@ -197,14 +197,11 @@
 			isa = PBXGroup;
 			children = (
 				8328E66B1A17361B0099C689 /* SMGMenuController.swift */,
-				83278CC11A2C12AE0073C848 /* SMGModelController.swift */,
-				83F345B41A21A5EA0071BAE4 /* SMGModelObserveController.swift */,
-				83F345B61A21A8B20071BAE4 /* SMGModelObserveNotifyController.swift */,
-				83278CC31A2C17B70073C848 /* SMGModelNotifyController.swift */,
 				83E0ADDC1A18CCAB0016C442 /* SMGMenuItemsController.swift */,
 				83AC35451A19A40F00A9E56C /* SMGSmudgeHandlesController.swift */,
 				8329EF8B1A1C306E00C41563 /* SMGSmudgeCurveController.swift */,
 				83A888A31A1DBCD500A8713C /* SMGSmudgeTransitionController.swift */,
+				83CA1A401A2C2BD50055603E /* Base Classes */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -302,6 +299,17 @@
 				832B57781A1C8C97001B9BF1 /* SMGPointIndicatorView.swift */,
 			);
 			name = Debugging;
+			sourceTree = "<group>";
+		};
+		83CA1A401A2C2BD50055603E /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				83278CC11A2C12AE0073C848 /* SMGModelController.swift */,
+				83F345B41A21A5EA0071BAE4 /* SMGModelObserveController.swift */,
+				83F345B61A21A8B20071BAE4 /* SMGModelObserveNotifyController.swift */,
+				83278CC31A2C17B70073C848 /* SMGModelNotifyController.swift */,
+			);
+			name = "Base Classes";
 			sourceTree = "<group>";
 		};
 		83CEBAD51A249103006B265E /* Pages */ = {

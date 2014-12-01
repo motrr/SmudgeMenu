@@ -5,8 +5,10 @@
 import UIKit
 
 class SMGSmudgeIconContainerViewController : SMGIconContainerViewController {
-    
+
     var currentMenuItemUpdater:SMGCurrentMenuItemUpdater?
+    var openCloseUpdater:SMGSmudgeOpenCloseUpdater?
+    
     var itemId:String!
     var iconViewController:UIViewController!
     var iconTitleLabel:UILabel!
@@ -18,6 +20,7 @@ class SMGSmudgeIconContainerViewController : SMGIconContainerViewController {
     
     override func didTap(sender:UITapGestureRecognizer) {
         currentMenuItemUpdater?.updateCurrentMenuItem(itemId)
+        openCloseUpdater?.closeHandles()
     }
     
     func setIcon(iconViewController:UIViewController, title:String, font:UIFont) {

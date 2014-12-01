@@ -5,7 +5,7 @@
 import UIKit
 
 /*
-    Generic class for observing and reacting to changes in model layer.
+    Base class for observing and reacting to changes in model layer.
 */
 
 private var modelContext = "modelContext"

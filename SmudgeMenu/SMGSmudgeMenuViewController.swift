@@ -22,18 +22,25 @@ class SMGSmudgeMenuViewController : UIViewController {
     }
 
     var handlesViewController:SMGSmudgeHandlesViewController!  {
-        didSet {addChildViewControllerHelper(handlesViewController)}
+        didSet {addFullscreenChildViewController(handlesViewController)}
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         smudgeViewController = SMGSmudgeViewController()
-        smudgeDebugViewController = SMGSmudgeDebugViewController()
         iconsViewController = SMGSmudgeIconsViewController()
+        smudgeDebugViewController = SMGSmudgeDebugViewController()
         handlesViewController = SMGSmudgeHandlesViewController()
         
+        /*
+            Show and hide view for debugging purposes.
+        */
+        
         smudgeDebugViewController.view.hidden = true
+        //iconsViewController.view.hidden = true
+        //smudgeViewController.view.hidden = true
+        
         
         /*
             To ensure that taps on the menu icon buttons are passed through the overlying handles,

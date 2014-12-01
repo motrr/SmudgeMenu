@@ -4,6 +4,10 @@
 
 import UIKit
 
+enum SMGPreferredEdge {
+    case Left, Right
+}
+
 class SMGSmudgeHandlesViewController : UIViewController {
     
     var handlesUpdater:SMGHandlesUpdater? {
@@ -13,7 +17,6 @@ class SMGSmudgeHandlesViewController : UIViewController {
         }
     }
     
-    let handleInitOffset = CGPoint(x: 200, y: 200)
     let handleRadius:CGFloat = 70
     let helperRadius:CGFloat = 25
     
@@ -22,6 +25,12 @@ class SMGSmudgeHandlesViewController : UIViewController {
     var handleEdgeInsets:UIEdgeInsets {
         return UIEdgeInsetsMake(handleVEdgeInsets, handleHEdgeInsets, handleVEdgeInsets, handleHEdgeInsets)
     }
+    
+    var handleInitPoint:CGPoint!
+    
+    var preferredEdge:SMGPreferredEdge = .Left
+    var handleLeftSnapPoint:CGPoint?
+    var handleRightSnapPoint:CGPoint?
     
     let maxVSeparationToHSeperationRatio:CGFloat = 0.5
 
@@ -46,6 +55,9 @@ class SMGSmudgeHandlesViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        handleInitPoint = CGPoint(x: handleHEdgeInsets, y: handleVEdgeInsets)
+        
         setupHelperViews()
         setupHandles()
         setupDynamicBehaviors()
@@ -65,7 +77,7 @@ class SMGSmudgeHandlesViewController : UIViewController {
         for helperView in [handleAHelperView, handleBHelperView] {
             self.view.addSubview( helperView )
             helperView.circleRadius = helperRadius
-            helperView.center = handleInitOffset
+            helperView.center = handleInitPoint
         }
     }
     
@@ -75,8 +87,8 @@ class SMGSmudgeHandlesViewController : UIViewController {
         handleBViewController = SMGSmudgeHandleViewController()
         for handle in [ handleAViewController, handleBViewController ] {
                 handle.delegate = self
-                handle.xConstraint = centerX(handle.view) => left(self.view) + handleInitOffset.x
-                handle.yConstraint = centerY(handle.view) => top(self.view) + handleInitOffset.y
+                handle.xConstraint = centerX(handle.view) => left(self.view) + handleInitPoint.x
+                handle.yConstraint = centerY(handle.view) => top(self.view) + handleInitPoint.y
                 handle.view.snp_makeConstraints { make in
                     make.size.equalTo(CGSize(width:2*self.handleRadius, height:2*self.handleRadius)); return
                 }
@@ -144,18 +156,12 @@ extension SMGSmudgeHandlesViewController : SMGSmudgeHandleViewControllerDelegate
             helper = handleBHelperView
             otherHandle = handleAViewController
         }
-        
-        /* 
-            Increase responsiveness of manually-moved handle, at the cost of a little elegance.
-        */
-        
+
+        // Increase responsiveness of manually-moved handle, at the cost of smoother animation.
         //helper.center = handle.centrePointFromConstraints!
         //animator.updateItemUsingCurrentState(helper)
         
-        /*
-            Limit vertical seperation of the two handles, based on their horizontal seperation
-        */
-        
+        // Limit vertical seperation of the two handles, based on their horizontal seperation
         var hSep:CGFloat = handle.xConstraint!.constant - otherHandle.xConstraint!.constant
         var vSep:CGFloat = handle.yConstraint!.constant - otherHandle.yConstraint!.constant
         
@@ -165,6 +171,102 @@ extension SMGSmudgeHandlesViewController : SMGSmudgeHandleViewControllerDelegate
             { otherHandle.yConstraint!.constant = handle.yConstraint!.constant + maxVSeparationToHSeperationRatio * fabs(hSep) }
         
         updateDyanmics()
+    }
+    
+    func handleDidFinishMoving(handle: SMGSmudgeHandleViewController) {
+       
+        handleDidMove(handle)
+        
+        var otherHandle = handleBViewController
+        if handle == handleBViewController {
+            otherHandle = handleAViewController
+        }
+        
+        if handle.xConstraint?.constant != otherHandle.xConstraint?.constant {
+            handlesSnappedOpen(handle, anchoredHandle: otherHandle)
+        }
+        else {
+            handlesSnappedClosed(handle, anchoredHandle: otherHandle)
+        }
+    }
+    
+    func handlesSnappedOpen(freeHandle:SMGSmudgeHandleViewController, anchoredHandle:SMGSmudgeHandleViewController) {
+        
+        if freeHandle.xConstraint?.constant < anchoredHandle.xConstraint?.constant {
+            handleLeftSnapPoint = freeHandle.centrePointFromConstraints
+            handleRightSnapPoint = anchoredHandle.centrePointFromConstraints
+        }
+        else {
+            handleLeftSnapPoint = anchoredHandle.centrePointFromConstraints
+            handleRightSnapPoint = freeHandle.centrePointFromConstraints
+        }
+    }
+    
+    func handlesSnappedClosed(freeHandle:SMGSmudgeHandleViewController, anchoredHandle:SMGSmudgeHandleViewController) {
+        
+        if freeHandle.xConstraint?.constant < self.view.frame.size.width / 2 {
+            preferredEdge = .Left
+            handleLeftSnapPoint = freeHandle.centrePointFromConstraints
+            handleRightSnapPoint = nil
+        }
+        else {
+            preferredEdge = .Right
+            handleLeftSnapPoint = nil
+            handleRightSnapPoint = freeHandle.centrePointFromConstraints
+        }
+    }
+}
+
+extension SMGSmudgeHandlesViewController : SMGSmudgeOpenCloseResponder {
+    
+    func didOpenHandles() {
+        
+        generateSnapPoints()
+        
+        handleAViewController.centrePointFromConstraints = handleLeftSnapPoint
+        handleBViewController.centrePointFromConstraints = handleRightSnapPoint
+        
+        updateAnimatorWithHandles()
+    }
+    
+    func didCloseHandles() {
+        
+        generateSnapPoints()
+        
+        var closePoint:CGPoint
+        if self.preferredEdge == SMGPreferredEdge.Left {closePoint = handleLeftSnapPoint!}
+        else {closePoint = handleRightSnapPoint!}
+        
+        handleAViewController.centrePointFromConstraints = closePoint
+        handleBViewController.centrePointFromConstraints = closePoint
+        
+        updateAnimatorWithHandles()
+    }
+    
+    func updateAnimatorWithHandles() {
+        animator?.updateItemUsingCurrentState(handleAViewController.view)
+        animator?.updateItemUsingCurrentState(handleBViewController.view)
+        updateDyanmics()
+    }
+    
+    func generateSnapPoints() {
+        
+        if handleRightSnapPoint == nil && handleLeftSnapPoint == nil {
+            handleLeftSnapPoint = handleInitPoint
+            handleLeftSnapPoint?.y += 30
+        }
+        
+        if handleRightSnapPoint == nil {
+            handleRightSnapPoint = handleLeftSnapPoint
+            handleRightSnapPoint?.y += 30
+            handleRightSnapPoint?.x = self.view.frame.size.width - handleEdgeInsets.right
+        }
+        
+        if handleLeftSnapPoint == nil {
+            handleLeftSnapPoint = handleRightSnapPoint
+            handleLeftSnapPoint?.y += 30
+            handleLeftSnapPoint?.x = handleEdgeInsets.left
+        }
     }
 }
 

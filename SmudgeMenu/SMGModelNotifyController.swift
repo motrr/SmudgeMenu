@@ -5,7 +5,9 @@
 import UIKit
 
 /*
-    Sometimes we maintian a list of responders, but don't actually need to observe the model. We subclass SMGModelObserveNotifyController and override with empty methods (since we can't use multiple inheritance). This means responders can only be triggered manually from the responders array, which is the desired behavior.
+    Base class for notifying responderes in the UI layer.
+
+    Sometimes we maintian a list of responders to be notified, but don't actually need to observe the model - we act directly on messages from the UI layer with no need to update the model. We subclass SMGModelObserveNotifyController and override with empty methods (since we can't use multiple inheritance). This means responders can only be triggered manually from the responders array, which is the desired behavior.
 */
 
 class SMGModelNotifyController : SMGModelObserveNotifyController {

@@ -26,6 +26,14 @@ class SMGSmudgeIconsViewController : UIViewController {
             }
         }
     }
+    var openCloseUpdater:SMGSmudgeOpenCloseUpdater? {
+        didSet {
+            for iconContainer in iconContainers {
+                iconContainer.openCloseUpdater = self.openCloseUpdater
+            }
+            mainMenuIconContainer?.openCloseUpdater = self.openCloseUpdater
+        }
+    }
     
     func updateIconSizes() {
 
@@ -76,6 +84,7 @@ extension SMGSmudgeIconsViewController : SMGMenuItemsResponder {
         
         iconContainer.setIcon(menuIcon, title: iconTitle, font:iconFont)
         iconContainer.currentMenuItemUpdater = self.currentMenuItemUpdater
+        iconContainer.openCloseUpdater = self.openCloseUpdater
         
         updateIconSizes()
     }
@@ -104,6 +113,8 @@ extension SMGSmudgeIconsViewController : SMGMenuItemsResponder {
             make.height.equalTo( self.mainMenuIconSize.height )
             make.center.equalTo( self.mainMenuIconContainer!.view.snp_center )
         }
+        
+        mainMenuIconContainer?.openCloseUpdater = self.openCloseUpdater
         
         updateIconSizes()
     }
