@@ -8,18 +8,15 @@ class SMGSmudgeIconContainerViewController : SMGIconContainerViewController {
     
     var currentMenuItemUpdater:SMGCurrentMenuItemUpdater?
     var itemId:String!
-    var tapGesture: UITapGestureRecognizer!
     var iconViewController:UIViewController!
     var iconTitleLabel:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tapGesture = UITapGestureRecognizer(target: self, action: Selector("didTap:"))
-        self.view.addGestureRecognizer(tapGesture)
         self.view.backgroundColor = UIColor.clearColor()
     }
     
-    func didTap(sender:UITapGestureRecognizer) {
+    override func didTap(sender:UITapGestureRecognizer) {
         currentMenuItemUpdater?.updateCurrentMenuItem(itemId)
     }
     

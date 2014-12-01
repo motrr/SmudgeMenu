@@ -8,9 +8,13 @@ class SMGMainMenuIconContainerViewController : SMGIconContainerViewController {
     
     var iconViewController:UIViewController! {
         didSet {
-            self.addFullscreenChildViewController(self.iconViewController)
+            self.addChildViewControllerHelper(self.iconViewController)
             self.iconViewController.view.userInteractionEnabled = false
         }
+    }
+    
+    override func didTap(tg: UITapGestureRecognizer) {
+        println( "Tapped main menu" )
     }
 }
 

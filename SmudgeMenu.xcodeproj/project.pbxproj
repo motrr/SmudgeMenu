@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		38C7E0D6DFFF2DE721A69D3E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28B1A254CD9ADD702A3E710E /* libPods.a */; };
+		83278CC21A2C12AE0073C848 /* SMGModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83278CC11A2C12AE0073C848 /* SMGModelController.swift */; };
+		83278CC41A2C17B70073C848 /* SMGModelNotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83278CC31A2C17B70073C848 /* SMGModelNotifyController.swift */; };
+		83278CC61A2C1A770073C848 /* SMGTappableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83278CC51A2C1A770073C848 /* SMGTappableView.swift */; };
 		8328E66A1A17274E0099C689 /* SMGModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8328E6691A17274E0099C689 /* SMGModel.swift */; };
 		8328E66C1A17361B0099C689 /* SMGMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8328E66B1A17361B0099C689 /* SMGMenuController.swift */; };
 		8328E66E1A1737200099C689 /* SMGInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8328E66D1A1737200099C689 /* SMGInputModel.swift */; };
@@ -59,8 +62,8 @@
 		83F345AE1A1ED9B70071BAE4 /* SMGSmudgeIconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345AD1A1ED9B70071BAE4 /* SMGSmudgeIconsViewController.swift */; };
 		83F345B01A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345AF1A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift */; };
 		83F345B31A2044C40071BAE4 /* SMGUIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345B21A2044C40071BAE4 /* SMGUIProtocols.swift */; };
-		83F345B51A21A5EA0071BAE4 /* SMGModelObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345B41A21A5EA0071BAE4 /* SMGModelObserver.swift */; };
-		83F345B71A21A8B20071BAE4 /* SMGModelObserverNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345B61A21A8B20071BAE4 /* SMGModelObserverNotifier.swift */; };
+		83F345B51A21A5EA0071BAE4 /* SMGModelObserveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345B41A21A5EA0071BAE4 /* SMGModelObserveController.swift */; };
+		83F345B71A21A8B20071BAE4 /* SMGModelObserveNotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F345B61A21A8B20071BAE4 /* SMGModelObserveNotifyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		162A88530B84381524BC1B40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		28B1A254CD9ADD702A3E710E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B5CB45DA907A3A26D048316 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		83278CC11A2C12AE0073C848 /* SMGModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGModelController.swift; sourceTree = "<group>"; };
+		83278CC31A2C17B70073C848 /* SMGModelNotifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGModelNotifyController.swift; sourceTree = "<group>"; };
+		83278CC51A2C1A770073C848 /* SMGTappableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGTappableView.swift; sourceTree = "<group>"; };
 		8328E6691A17274E0099C689 /* SMGModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGModel.swift; sourceTree = "<group>"; };
 		8328E66B1A17361B0099C689 /* SMGMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGMenuController.swift; sourceTree = "<group>"; };
 		8328E66D1A1737200099C689 /* SMGInputModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGInputModel.swift; sourceTree = "<group>"; };
@@ -135,8 +141,8 @@
 		83F345AD1A1ED9B70071BAE4 /* SMGSmudgeIconsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeIconsViewController.swift; sourceTree = "<group>"; };
 		83F345AF1A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeIconContainerViewController.swift; sourceTree = "<group>"; };
 		83F345B21A2044C40071BAE4 /* SMGUIProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGUIProtocols.swift; sourceTree = "<group>"; };
-		83F345B41A21A5EA0071BAE4 /* SMGModelObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGModelObserver.swift; sourceTree = "<group>"; };
-		83F345B61A21A8B20071BAE4 /* SMGModelObserverNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGModelObserverNotifier.swift; sourceTree = "<group>"; };
+		83F345B41A21A5EA0071BAE4 /* SMGModelObserveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGModelObserveController.swift; sourceTree = "<group>"; };
+		83F345B61A21A8B20071BAE4 /* SMGModelObserveNotifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGModelObserveNotifyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				8328E66B1A17361B0099C689 /* SMGMenuController.swift */,
-				83F345B41A21A5EA0071BAE4 /* SMGModelObserver.swift */,
-				83F345B61A21A8B20071BAE4 /* SMGModelObserverNotifier.swift */,
+				83278CC11A2C12AE0073C848 /* SMGModelController.swift */,
+				83F345B41A21A5EA0071BAE4 /* SMGModelObserveController.swift */,
+				83F345B61A21A8B20071BAE4 /* SMGModelObserveNotifyController.swift */,
+				83278CC31A2C17B70073C848 /* SMGModelNotifyController.swift */,
 				83E0ADDC1A18CCAB0016C442 /* SMGMenuItemsController.swift */,
 				83AC35451A19A40F00A9E56C /* SMGSmudgeHandlesController.swift */,
 				8329EF8B1A1C306E00C41563 /* SMGSmudgeCurveController.swift */,
@@ -240,6 +248,7 @@
 				83AC354F1A19F47700A9E56C /* SMGDraggableCircleView.swift */,
 				83AE96551A1B7CD5005FAF30 /* SMGCircleView.swift */,
 				83AC354B1A19F3A300A9E56C /* SMGDraggableView.swift */,
+				83278CC51A2C1A770073C848 /* SMGTappableView.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -560,9 +569,10 @@
 			files = (
 				83AE964A1A1AF5BA005FAF30 /* SMGConstraintMath.swift in Sources */,
 				837393F41A2861F200F49B23 /* SMGMainMenuIconContainerViewController.swift in Sources */,
+				83278CC61A2C1A770073C848 /* SMGTappableView.swift in Sources */,
 				83AC354C1A19F3A300A9E56C /* SMGDraggableView.swift in Sources */,
 				8329EF8C1A1C306E00C41563 /* SMGSmudgeCurveController.swift in Sources */,
-				83F345B71A21A8B20071BAE4 /* SMGModelObserverNotifier.swift in Sources */,
+				83F345B71A21A8B20071BAE4 /* SMGModelObserveNotifyController.swift in Sources */,
 				8329EF901A1C704200C41563 /* SMGHandleHelperView.swift in Sources */,
 				83CEBAD41A248BC5006B265E /* SMGPageContainerViewController.swift in Sources */,
 				837393F61A28644000F49B23 /* SMGIconContainerViewController.swift in Sources */,
@@ -570,8 +580,9 @@
 				83AE96541A1B7CA0005FAF30 /* SMGSmudgeHandleView.swift in Sources */,
 				83E0ADD91A18A8540016C442 /* LayoutConstraint.swift in Sources */,
 				83AC35501A19F47700A9E56C /* SMGDraggableCircleView.swift in Sources */,
-				83F345B51A21A5EA0071BAE4 /* SMGModelObserver.swift in Sources */,
+				83F345B51A21A5EA0071BAE4 /* SMGModelObserveController.swift in Sources */,
 				83E0ADD51A18A8540016C442 /* Constraint.swift in Sources */,
+				83278CC41A2C17B70073C848 /* SMGModelNotifyController.swift in Sources */,
 				83A888A41A1DBCD500A8713C /* SMGSmudgeTransitionController.swift in Sources */,
 				833B6DE519FA3943008D439D /* AppDelegate.swift in Sources */,
 				83F345B01A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift in Sources */,
@@ -582,6 +593,7 @@
 				83E0ADE11A18CD6B0016C442 /* SMGSmudgeHandlesViewController.swift in Sources */,
 				83E0ADDA1A18A8540016C442 /* EdgeInsets.swift in Sources */,
 				83AC35461A19A40F00A9E56C /* SMGSmudgeHandlesController.swift in Sources */,
+				83278CC21A2C12AE0073C848 /* SMGModelController.swift in Sources */,
 				83E0ADDF1A18CCBB0016C442 /* SMGPagesViewController.swift in Sources */,
 				83AC35481A19B28300A9E56C /* SMGMenuViewController.swift in Sources */,
 				833B6DE719FA394A008D439D /* ViewController.swift in Sources */,

@@ -19,6 +19,11 @@ These protocols are used throughout the UI layer. They qualify how non-UI contro
     optional func didSetMainMenuIcon(mainMenuIcon:UIViewController )
 }
 
+@objc protocol SMGSmudgeOpenCloseResponder : SMGResponder {
+    func didCloseHandles()
+    func didOpenHandles()
+}
+
 @objc protocol SMGCurveResponder : SMGResponder {
     func didUpdateCurve( curve:SMGBezierCurve )
     optional func didUpdateMaxCurveWidth(width:CGFloat)
@@ -34,6 +39,11 @@ These protocols are used throughout the UI layer. They qualify how non-UI contro
 protocol SMGHandlesUpdater {
     func updateHandles( handleA:CGPoint, _ handleB:CGPoint )
     func updateHandleBounds(minX:CGFloat, _ minY:CGFloat, _ maxX:CGFloat, _ maxY:CGFloat )
+}
+
+protocol SMGSmudgeOpenCloseUpdater {
+    func openHandles()
+    func closeHandles()
 }
 
 protocol SMGCurrentMenuItemUpdater {

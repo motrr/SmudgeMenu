@@ -45,6 +45,9 @@ class SMGMenuItemModel : NSObject {
 class SMGSmudgeModel : NSObject {
     
     var backgroundColour:UIColor = UIColor.redColor()
+    
+    dynamic var handleAPoint: CGPoint = CGPoint(x: 0, y: 0)
+    dynamic var handleBPoint: CGPoint = CGPoint(x: 0, y: 0)
 
     dynamic var startPoint: CGPoint = CGPoint(x: 0, y: 0)
     dynamic var endPoint: CGPoint = CGPoint(x: 0, y: 0)
@@ -59,17 +62,18 @@ class SMGSmudgeModel : NSObject {
     var bezierCurve:SMGBezierCurve {
         return SMGBezierCurve(startPoint,controlPointA,controlPointB,endPoint)
     }
-    var curveAmount:CGFloat = 50
+    var curveAmount:CGFloat = 40
     
     /* 
         Calculated Bezier curve control points.
     */
+    
     var controlPointA:CGPoint {
         // Watch out for case of points being equal
         if startPoint == endPoint { return startPoint }
         
-        // Interpolate 25% between start and finish
-        var controlPoint = startPoint.interpolate(endPoint, value:0.25)
+        // Interpolate between start and finish
+        var controlPoint = startPoint.interpolate(endPoint, value:0.3)
         var endStartSeparationDistance = (endPoint - startPoint).magnitude
         
         // Calculate amount to curve
@@ -86,8 +90,8 @@ class SMGSmudgeModel : NSObject {
         // Watch out for case of points being equal
         if startPoint == endPoint { return startPoint }
         
-        // Interpolate 75% between start and finish
-        var controlPoint = startPoint.interpolate(endPoint, value:0.75)
+        // Interpolate between start and finish
+        var controlPoint = startPoint.interpolate(endPoint, value:0.7)
         var endStartSeparationDistance = (endPoint - startPoint).magnitude
         
         // Calculate amount to curve

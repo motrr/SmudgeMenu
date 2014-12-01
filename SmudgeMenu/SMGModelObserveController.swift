@@ -10,17 +10,15 @@ import UIKit
 
 private var modelContext = "modelContext"
 
-class SMGModelObserver: NSObject {
+class SMGModelObserveController: SMGModelController {
     
     func keyPaths() -> [String] {
         fatalError("Override this method in your subclass to observe your desired key paths")
         return []
     }
     
-    var model: NSObject
-    init(model:NSObject) {
-        self.model = model
-        super.init()
+    override init(model:NSObject) {
+        super.init(model:model)
         addModelObservers()
     }
     deinit {

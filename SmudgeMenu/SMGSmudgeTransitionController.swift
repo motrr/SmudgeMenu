@@ -4,7 +4,9 @@
 
 import UIKit
 
-class SMGSmudgeTransitionController : SMGModelObserverNotifier {
+class SMGSmudgeTransitionController : SMGModelObserveNotifyController {
+    
+    var smudgeModel:SMGSmudgeModel {return model as SMGSmudgeModel}
     
     override func keyPaths() -> [String] {
         return ["progress"]
@@ -17,8 +19,6 @@ class SMGSmudgeTransitionController : SMGModelObserverNotifier {
     override func notifyResponder(responder: SMGResponder, keyPath:String) {
         
         let transitionResponder = responder as SMGTransitionResponder
-        let smudgeModel = model as SMGSmudgeModel
-        
         transitionResponder.didUpdateTransitionProgress( smudgeModel.progress )
     }
 }

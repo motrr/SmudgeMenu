@@ -11,7 +11,6 @@ protocol SMGDraggableViewDelegate {
     func viewDidFinishDragging() -> Void
 }
 
-
 class SMGDraggableView : UIView {
  
     var delegate:SMGDraggableViewDelegate?

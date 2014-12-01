@@ -8,7 +8,9 @@ import UIKit
     Observes and reacts to changes in menu items model, forwards notifications to UI layer.
 */
 
-class SMGMenuItemsController : SMGModelObserverNotifier {
+class SMGMenuItemsController : SMGModelObserveNotifyController {
+    
+    var menuItemsModel:SMGMenuItemsModel {return model as SMGMenuItemsModel}
     
     override func keyPaths() -> [String] {
         return ["currentItemId", "newestItemId", "mainMenuIcon"]
@@ -21,8 +23,7 @@ class SMGMenuItemsController : SMGModelObserverNotifier {
     override func notifyResponder(responder: SMGResponder, keyPath:String) {
         
         let menuItemsResponder = responder as SMGMenuItemsResponder
-        let menuItemsModel = model as SMGMenuItemsModel
-        
+
         switch keyPath {
         case "currentItemId" :
             if menuItemsModel.currentItemId != nil {
@@ -88,7 +89,6 @@ class SMGMenuItemsController : SMGModelObserverNotifier {
 extension SMGMenuItemsController : SMGCurrentMenuItemUpdater {
     
     func updateCurrentMenuItem(newItemId: String) {
-        let menuItemsModel = model as SMGMenuItemsModel
         menuItemsModel.currentItemId = newItemId
     }
 }

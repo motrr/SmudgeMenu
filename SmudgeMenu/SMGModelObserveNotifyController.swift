@@ -8,7 +8,7 @@ import UIKit
     Generic class for observing and reacting to changes in model layer and notifying responders in the UI layer
 */
 
-class SMGModelObserverNotifier: SMGModelObserver {
+class SMGModelObserveNotifyController: SMGModelObserveController {
     
     var responders:[SMGResponder] = []
     

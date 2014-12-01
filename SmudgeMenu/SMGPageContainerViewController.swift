@@ -21,9 +21,6 @@ class SMGPageContainerViewController : UIViewController {
 extension SMGPageContainerViewController : SMGTransitionResponder {
     
     func didUpdateTransitionProgress(newProgress: CGFloat) {
-        
-        println( newProgress )
-        
         let scale:CGFloat = CGFloat.interpolate(1-newProgress, min: minScale, max: maxScale)
         pageViewController?.view.transform = CGAffineTransformMakeScale(scale, scale)
     }

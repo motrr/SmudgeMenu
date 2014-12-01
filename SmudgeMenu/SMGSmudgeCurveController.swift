@@ -8,7 +8,9 @@ import UIKit
     Observes and reacts to changes in smudge model, forwards notifications to UI layer.
 */
 
-class SMGSmudgeCurveController: SMGModelObserverNotifier {
+class SMGSmudgeCurveController: SMGModelObserveNotifyController {
+    
+    var smudgeModel:SMGSmudgeModel {return model as SMGSmudgeModel}
     
     override func keyPaths() -> [String] {
         return ["startPoint", "endPoint", "minX", "maxX"]
@@ -21,7 +23,6 @@ class SMGSmudgeCurveController: SMGModelObserverNotifier {
     override func notifyResponder(responder: SMGResponder, keyPath:String) {
         
         let curveResponder = responder as SMGCurveResponder
-        let smudgeModel = model as SMGSmudgeModel
         
         switch keyPath {
         case "startPoint","endPoint"  :
