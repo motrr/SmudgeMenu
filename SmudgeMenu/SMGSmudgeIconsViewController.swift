@@ -6,7 +6,7 @@ import UIKit
 
 class SMGSmudgeIconsViewController : UIViewController {
     
-    var mainMenuIconSize = CGSize(width:30, height:30)
+    var mainMenuIconSize = CGSize(width:18, height:18)
     var mainMenuTapAreaSize = CGSize(width:90, height:90)
     
     var maxIconSize = CGSize(width:100, height:100)
@@ -111,8 +111,10 @@ extension SMGSmudgeIconsViewController : SMGMenuItemsResponder {
         mainMenuIconContainer!.iconViewController.view.snp_makeConstraints() { make in
             make.width.equalTo( self.mainMenuIconSize.width )
             make.height.equalTo( self.mainMenuIconSize.height )
-            make.center.equalTo( self.mainMenuIconContainer!.view.snp_center )
         }
+        
+        mainMenuIconContainer!.mainIconXConstraint = centerX(mainMenuIcon.view) => centerX(self.mainMenuIconContainer!.view)
+        mainMenuIconContainer!.mainIconYConstraint = centerY(mainMenuIcon.view) => centerY(self.mainMenuIconContainer!.view)
         
         mainMenuIconContainer?.openCloseUpdater = self.openCloseUpdater
         

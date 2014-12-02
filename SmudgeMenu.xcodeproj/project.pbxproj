@@ -29,6 +29,7 @@
 		837393F21A26189700F49B23 /* SMGNoHitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837393F11A26189700F49B23 /* SMGNoHitView.swift */; };
 		837393F41A2861F200F49B23 /* SMGMainMenuIconContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837393F31A2861F200F49B23 /* SMGMainMenuIconContainerViewController.swift */; };
 		837393F61A28644000F49B23 /* SMGIconContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837393F51A28644000F49B23 /* SMGIconContainerViewController.swift */; };
+		83916E3D1A2E070C00E82A68 /* SMGBackButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83916E3C1A2E070C00E82A68 /* SMGBackButtonController.swift */; };
 		839509BE1A24606A0085B91D /* SMGBezierCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839509BD1A24606A0085B91D /* SMGBezierCurve.swift */; };
 		83A888A21A1D781F00A8713C /* SMGSmudgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A888A11A1D781F00A8713C /* SMGSmudgeView.swift */; };
 		83A888A41A1DBCD500A8713C /* SMGSmudgeTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A888A31A1DBCD500A8713C /* SMGSmudgeTransitionController.swift */; };
@@ -102,6 +103,7 @@
 		837393F11A26189700F49B23 /* SMGNoHitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGNoHitView.swift; sourceTree = "<group>"; };
 		837393F31A2861F200F49B23 /* SMGMainMenuIconContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGMainMenuIconContainerViewController.swift; sourceTree = "<group>"; };
 		837393F51A28644000F49B23 /* SMGIconContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGIconContainerViewController.swift; sourceTree = "<group>"; };
+		83916E3C1A2E070C00E82A68 /* SMGBackButtonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGBackButtonController.swift; sourceTree = "<group>"; };
 		839509BD1A24606A0085B91D /* SMGBezierCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGBezierCurve.swift; sourceTree = "<group>"; };
 		83A888A11A1D781F00A8713C /* SMGSmudgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeView.swift; sourceTree = "<group>"; };
 		83A888A31A1DBCD500A8713C /* SMGSmudgeTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMGSmudgeTransitionController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				83AC35451A19A40F00A9E56C /* SMGSmudgeHandlesController.swift */,
 				8329EF8B1A1C306E00C41563 /* SMGSmudgeCurveController.swift */,
 				83A888A31A1DBCD500A8713C /* SMGSmudgeTransitionController.swift */,
+				83916E3C1A2E070C00E82A68 /* SMGBackButtonController.swift */,
 				83CA1A401A2C2BD50055603E /* Base Classes */,
 			);
 			name = Controller;
@@ -591,6 +594,7 @@
 				83F345B51A21A5EA0071BAE4 /* SMGModelObserveController.swift in Sources */,
 				83E0ADD51A18A8540016C442 /* Constraint.swift in Sources */,
 				83278CC41A2C17B70073C848 /* SMGModelNotifyController.swift in Sources */,
+				83916E3D1A2E070C00E82A68 /* SMGBackButtonController.swift in Sources */,
 				83A888A41A1DBCD500A8713C /* SMGSmudgeTransitionController.swift in Sources */,
 				833B6DE519FA3943008D439D /* AppDelegate.swift in Sources */,
 				83F345B01A1ED9DC0071BAE4 /* SMGSmudgeIconContainerViewController.swift in Sources */,

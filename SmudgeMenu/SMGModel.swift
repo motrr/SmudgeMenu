@@ -21,25 +21,12 @@ class SMGModel : NSObject {
     let barModel:SMGBarModel = SMGBarModel()
 }
 
+typealias SMGBackButtonBlock = (Void -> Void)
+
 class SMGMenuItemsModel : NSObject {
     
     dynamic var currentItemId:String?
-    dynamic var newestItemId:String?
-    var itemsDictionary:Dictionary<String, SMGMenuItemModel> = Dictionary<String, SMGMenuItemModel>()
-    dynamic var mainMenuIcon:SMGMainMenuIconModel?
-}
-
-class SMGMenuItemModel : NSObject {
-    
-    var itemId:String
-    var pageModel:SMGPageModel
-    var iconModel:SMGIconModel
-    
-    init(itemId:String, pageModel:SMGPageModel, iconModel:SMGIconModel) {
-        self.itemId = itemId
-        self.pageModel = pageModel
-        self.iconModel = iconModel
-    }
+    var backButtonStacks:Dictionary<String, [SMGBackButtonBlock]> = Dictionary<String, [SMGBackButtonBlock]>()
 }
 
 class SMGSmudgeModel : NSObject {

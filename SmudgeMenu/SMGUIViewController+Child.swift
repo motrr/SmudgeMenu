@@ -21,7 +21,6 @@ extension UIViewController {
         child.didMoveToParentViewController(self)
     }
 
-    
     func addFullscreenChildViewController(child:UIViewController) {
         self.addChildViewController(child)
         self.view.addSubview(child.view)

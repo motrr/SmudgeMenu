@@ -5,9 +5,17 @@
 import UIKit
 
 protocol SMGMenu {
-    func setMainMenuIcon(icon: SMGMainMenuIconModel)
+    
+    func setMainMenuIconFromModel(iconModel: SMGMainMenuIconModel)
+    func setMainMenuIcon(icon: UIViewController)
+    
     func addMenuItem(newItem:SMGMenuItemModel)
+    func addMenuItem(itemId: String, iconTitle: String, iconFont: UIFont, icon: UIViewController, page: UIViewController)
+    
     func selectMenuItem(itemId:String)
+    
+    func pushBackButton( backButtonBlock:SMGBackButtonBlock )
+    func popBackButton()
 }
 
 class SMGMenuController : NSObject {
@@ -20,7 +28,25 @@ class SMGMenuController : NSObject {
     var smudgeHandlesController:SMGSmudgeHandlesController!
     var smudgeCurveController:SMGSmudgeCurveController!
     var smudgeTransitionController:SMGSmudgeTransitionController!
+    var backButtonController:SMGBackButtonController!
     
+    var menuViewController:SMGMenuViewController!
+    
+    var pagesViewController:SMGPagesViewController
+        {return menuViewController.pagesViewController}
+    var smudgeMenuViewController:SMGSmudgeMenuViewController
+        {return menuViewController.smudgeMenuViewController}
+    var iconsViewController:SMGSmudgeIconsViewController
+        {return smudgeMenuViewController.iconsViewController}
+    var smudgeDebugViewController:SMGSmudgeDebugViewController
+        {return smudgeMenuViewController.smudgeDebugViewController}
+    var smudgeView:SMGSmudgeView
+        {return smudgeMenuViewController.smudgeViewController.smudgeView}
+    var handlesViewController:SMGSmudgeHandlesViewController
+        {return smudgeMenuViewController.handlesViewController}
+    var mainMenuIconContainer:SMGMainMenuIconContainerViewController
+        {return iconsViewController.mainMenuIconContainer!}
+
     init(menuViewController:SMGMenuViewController) {
         super.init()
         
@@ -28,19 +54,15 @@ class SMGMenuController : NSObject {
         smudgeCurveController = SMGSmudgeCurveController( model: smudgeModel )
         smudgeHandlesController = SMGSmudgeHandlesController( model: smudgeModel )
         smudgeTransitionController = SMGSmudgeTransitionController( model: smudgeModel )
+        backButtonController = SMGBackButtonController( model:menuItemsModel )
 
         loadUI(menuViewController)
     }
     
     func loadUI(menuViewController:SMGMenuViewController) {
         
-        let pagesViewController = menuViewController.pagesViewController
-        let smudgeMenuViewController = menuViewController.smudgeMenuViewController
-        let iconsViewController = smudgeMenuViewController.iconsViewController
-        let smudgeDebugViewController = smudgeMenuViewController.smudgeDebugViewController
-        let smudgeView = smudgeMenuViewController.smudgeViewController.smudgeView
-        let handlesViewController = smudgeMenuViewController.handlesViewController
-        
+        self.menuViewController = menuViewController
+
         menuItemsController.addResponder( iconsViewController )
         menuItemsController.addResponder( pagesViewController )
         iconsViewController.currentMenuItemUpdater = menuItemsController
@@ -61,21 +83,45 @@ class SMGMenuController : NSObject {
 
 extension SMGMenuController : SMGMenu {
     
-    func setMainMenuIcon(icon: SMGMainMenuIconModel) {
-        menuItemsModel.mainMenuIcon = icon
+    func setMainMenuIconFromModel(iconModel: SMGMainMenuIconModel) {
+        menuItemsController.createMainMenuIconFromModel(iconModel)
+
+        backButtonController.addResponder( mainMenuIconContainer )
+    }
+    
+    func setMainMenuIcon(icon: UIViewController) {
+        menuItemsController.createMainMenuIcon(icon)
+        
+        backButtonController.addResponder( mainMenuIconContainer )
     }
     
     func addMenuItem(newItem:SMGMenuItemModel) {
         
-        let itemId = newItem.itemId
-        menuItemsModel.itemsDictionary[itemId] = newItem
-        menuItemsModel.newestItemId = itemId
-        if (menuItemsModel.itemsDictionary.count == 1) {
+        menuItemsController.createMenuItem(newItem.itemId, newItemModel: newItem)
+        
+        if (menuItemsModel.currentItemId == nil) {
+            menuItemsModel.currentItemId = newItem.itemId
+        }
+    }
+    
+    func addMenuItem(itemId: String, iconTitle: String, iconFont: UIFont, icon: UIViewController, page: UIViewController) {
+        
+        menuItemsController.createMenuItem(itemId, iconTitle: iconTitle, iconFont: iconFont, icon: icon, page: page)
+        
+        if (menuItemsModel.currentItemId == nil) {
             menuItemsModel.currentItemId = itemId
         }
     }
     
     func selectMenuItem(itemId:String) {
         menuItemsModel.currentItemId = itemId
+    }
+    
+    func pushBackButton( backButtonBlock:SMGBackButtonBlock ) {
+        backButtonController.pushBackButton(backButtonBlock)
+    }
+    
+    func popBackButton() {
+        backButtonController.popBackButton()
     }
 }

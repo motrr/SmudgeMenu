@@ -25,6 +25,12 @@ func - (lhs:CGSize, rhs:CGSize) -> CGSize {
         height: lhs.height-rhs.height)
 }
 
+func * (lhs:CGPoint, rhs:CGFloat) -> CGPoint {
+    return CGPoint(
+        x: lhs.x * rhs,
+        y: lhs.y * rhs)
+}
+
 extension CGPoint {
 
     func confineToSizeWithEdgeInset(size:CGSize, insets:UIEdgeInsets) -> CGPoint {

@@ -4,7 +4,7 @@
 
 import UIKit
 
-class SMGCurveView : UIView {
+class SMGCurveView : SMGNoHitView {
     
     var startPoint:CGPoint = CGPoint(x: 100, y: 100)
     var controlPointA:CGPoint = CGPoint(x: 200, y: 100)
@@ -23,7 +23,7 @@ class SMGCurveView : UIView {
         self.backgroundColor = UIColor.clearColor()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    override required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

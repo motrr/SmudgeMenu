@@ -6,7 +6,7 @@ import UIKit
 
 class SMGSmudgeView : SMGCurveView {
     
-    let minRadius:CGFloat = 40
+    let minRadius:CGFloat = 25
     let maxRadius:CGFloat = 70
     
     var progress:CGFloat = 0

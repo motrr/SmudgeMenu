@@ -15,6 +15,10 @@ class SMGSmudgeDebugViewController : UIViewController {
     
     let curveView = SMGCurveView()
     
+    override func loadView() {
+        self.view = SMGNoHitView(frame: UIScreen.mainScreen().applicationFrame)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

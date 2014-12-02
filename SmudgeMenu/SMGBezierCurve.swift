@@ -46,9 +46,13 @@ class SMGBezierCurve : NSObject {
     func bezierInterpolationSingleAxis(t:CGFloat,_ e:CGFloat,_ f:CGFloat,_ g:CGFloat,_ h:CGFloat) -> CGFloat {
         var t2:CGFloat = t * t
         var t3:CGFloat = t2 * t
-        return e + (-e * 3 + t * (3 * e - e * t)) * t
-            + (3 * f + t * (-6 * f + f * 3 * t)) * t
-            + (g * 3 - g * 3 * t) * t2
-            + h * t3
+        var r:CGFloat = 0
+        
+        r += e + (-e * 3 + t * (3 * e - e * t)) * t
+        r += (3 * f + t * (-6 * f + f * 3 * t)) * t
+        r += (g * 3 - g * 3 * t) * t2
+        r += h * t3
+        
+        return r
     }
 }

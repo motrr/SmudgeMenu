@@ -21,6 +21,6 @@ class ViewController: UIViewController {
         }
         
         var mainMenuIconModel = SMGMainMenuIconModel(storyboardId:"Icons", viewControllerId:"MainMenu")
-        menu.setMainMenuIcon( mainMenuIconModel )
+        menu.setMainMenuIconFromModel( mainMenuIconModel )
     }
 }

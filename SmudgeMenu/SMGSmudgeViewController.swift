@@ -8,6 +8,10 @@ class SMGSmudgeViewController : UIViewController {
     
     let smudgeView = SMGSmudgeView()
     
+    override func loadView() {
+        self.view = SMGNoHitView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

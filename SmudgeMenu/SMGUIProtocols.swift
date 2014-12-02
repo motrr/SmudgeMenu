@@ -33,6 +33,12 @@ These protocols are used throughout the UI layer. They qualify how non-UI contro
     func didUpdateTransitionProgress(newProgress:CGFloat)
 }
 
+@objc protocol SMGBackButtonResponder : SMGResponder {
+    func didPushBackButton()
+    func didPopBackButton()
+    func didUpdateBackButtonStackHeight(newHeight:Int)
+}
+
 
 // Implement these updater protocols when recieving messages FROM the UI layer.
 
