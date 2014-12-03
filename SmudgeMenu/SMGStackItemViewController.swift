@@ -31,4 +31,19 @@ class SMGStackItemViewController : SMGXYConstraintViewController {
         
         self.view.layoutIfNeeded()
     }
+    
+    var iconImage:UIImage? {
+        didSet {
+            if let unwrappedIconImage = self.iconImage {
+                
+                let iconImageView = UIImageView(image: unwrappedIconImage)
+                
+                self.view.addSubview(iconImageView)
+                iconImageView.snp_makeConstraints() {make in
+                    make.edges.equalTo(self.view)
+                    return
+                }
+            }
+        }
+    }
 }

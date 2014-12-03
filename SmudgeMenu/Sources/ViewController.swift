@@ -19,6 +19,11 @@ class ViewController: UIViewController {
             var iconFont = UIFont.systemFontOfSize(UIFont.systemFontSize())
             menu.addMenuItem(sharedId, iconTitle: titleText, iconFont: iconFont, icon: icon, page: page)
         }
+        
+        var menuButtonViewController = instantiateViewController("Icons", viewControllerId:"MainMenu" )
+        //var backButtonViewController = instantiateViewController("Icons", viewControllerId:"" )
+        //menu.setMenuButtonIcon(menuButtonViewController.view)
+        
     }
     
     func instantiateViewController(storyboardId:String, viewControllerId:String) -> UIViewController {

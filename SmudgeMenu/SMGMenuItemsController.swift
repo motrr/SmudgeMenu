@@ -37,13 +37,6 @@ class SMGMenuItemsController : SMGModelObserveNotifyController {
 
 extension SMGMenuItemsController {
     
-    func createMainMenuIcon(icon:UIViewController) {
-        for responder in responders {
-            let menuItemsResponder = responder as SMGMenuItemsResponder
-            menuItemsResponder.didSetMainMenuIcon?(icon)
-        }
-    }
-    
     func createMenuItem(itemId:String, iconTitle:String, iconFont:UIFont, icon:UIViewController, page:UIViewController) {
 
         for responder in responders {

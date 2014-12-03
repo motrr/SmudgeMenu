@@ -8,7 +8,7 @@ class SMGBackButtonViewController : SMGStackItemViewController {
     
     override func viewDidLoad() {
         
-        self.view.backgroundColor = UIColor.magentaColor()
+        self.view.backgroundColor = UIColor.clearColor()
         self.view.userInteractionEnabled = false
     }
 }

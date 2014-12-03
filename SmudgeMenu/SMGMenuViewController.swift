@@ -51,10 +51,14 @@ class SMGMenuViewController : UIViewController {
 */
 
 extension SMGMenuViewController : SMGMenu {
-    func setMainMenuIcon(icon: UIViewController) { menuController.setMainMenuIcon(icon) }
+
     func addMenuItem(itemId: String, iconTitle: String, iconFont: UIFont, icon: UIViewController, page: UIViewController)
         {menuController.addMenuItem(itemId, iconTitle:iconTitle, iconFont:iconFont, icon:icon, page:page)}
     func selectMenuItem(itemId:String) { menuController.selectMenuItem(itemId) }
+    
+    func setMenuButtonIcon(iconImage: UIImage) {menuController.setMenuButtonIcon(iconImage)}
+    func setBackButtonIcon(iconImage: UIImage) {menuController.setBackButtonIcon(iconImage)}
+    
     func pushBackButton( backButtonBlock:SMGBackButtonBlock ) { menuController.pushBackButton(backButtonBlock) }
     func popBackButton()  { menuController.popBackButton() }
 }

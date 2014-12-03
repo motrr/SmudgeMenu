@@ -8,7 +8,7 @@ class SMGMenuButtonViewController : SMGStackItemViewController {
     
     override func viewDidLoad() {
         
-        self.view.backgroundColor = UIColor.cyanColor()
+        self.view.backgroundColor = UIColor.clearColor()
         self.view.userInteractionEnabled = false
     }
 }

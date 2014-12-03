@@ -12,8 +12,11 @@ class SMGMainIconStackContainerViewController : SMGXYConstraintViewController {
     var tappableView:SMGTappableView!
     var stack:[SMGStackItemViewController] = []
 
-    let menuButtonSize = CGSize(width: 30, height: 30)
-    let backButtonSize = CGSize(width: 40, height: 40)
+    let menuButtonSize = CGSize(width: 20, height: 15)
+    let backButtonSize = CGSize(width: 25, height: 25)
+    
+    var mainButtonIconImage:UIImage?
+    var backButtonIconImage:UIImage?
     
     override func viewDidLoad() {
         
@@ -33,6 +36,7 @@ class SMGMainIconStackContainerViewController : SMGXYConstraintViewController {
         
         let newMenuButton = SMGMenuButtonViewController()
         setupNewButton( newMenuButton, buttonSize: menuButtonSize )
+        newMenuButton.iconImage = mainButtonIconImage
         return newMenuButton
     }
     
@@ -40,6 +44,7 @@ class SMGMainIconStackContainerViewController : SMGXYConstraintViewController {
         
         let newBackButton = SMGBackButtonViewController()
         setupNewButton( newBackButton, buttonSize: backButtonSize )
+        newBackButton.iconImage = backButtonIconImage
         return newBackButton
     }
     
@@ -69,6 +74,24 @@ extension SMGMainIconStackContainerViewController : SMGTappableViewDelegate {
         }
         else {
             openCloseUpdater?.openHandles()
+        }
+    }
+}
+
+extension SMGMainIconStackContainerViewController : SMGIconConfigResponder {
+    
+    func didSetMenuButtonIcon(iconImage: UIImage) {
+        mainButtonIconImage = iconImage
+        stack.first?.iconImage = mainButtonIconImage
+    }
+    
+    func didSetBackButtonIcon(iconImage: UIImage) {
+        backButtonIconImage = iconImage
+        
+        for (index, stackItem) in enumerate(stack) {
+            if index != 0 {
+                stackItem.iconImage = backButtonIconImage
+            }
         }
     }
 }

@@ -40,14 +40,23 @@ extension SMGMainIconViewController : SMGBackButtonResponder {
     func didPopBackButton() {
         stackContainer.didPopBackButton()
     }
-    
     func didPushBackButton() {
         stackContainer.didPushBackButton()
     }
-    
     func didUpdateBackButtonStackHeight(newHeight: Int) {
         stackContainer.didUpdateBackButtonStackHeight(newHeight)
     }
+}
+
+extension SMGMainIconViewController : SMGIconConfigResponder {
+    
+    func didSetBackButtonIcon(iconImage: UIImage) {
+        stackContainer.didSetBackButtonIcon(iconImage)
+    }
+    func didSetMenuButtonIcon(iconImage: UIImage) {
+        stackContainer.didSetMenuButtonIcon(iconImage)
+    }
+    
 }
 
 extension SMGMainIconViewController : SMGCurveResponder {

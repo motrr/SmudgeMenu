@@ -6,11 +6,11 @@ import UIKit
 
 protocol SMGMenu {
     
-    func setMainMenuIcon(icon: UIViewController)
-
     func addMenuItem(itemId: String, iconTitle: String, iconFont: UIFont, icon: UIViewController, page: UIViewController)
-    
     func selectMenuItem(itemId:String)
+    
+    func setMenuButtonIcon(iconImage: UIImage)
+    func setBackButtonIcon(iconImage: UIImage)
     
     func pushBackButton( backButtonBlock:SMGBackButtonBlock )
     func popBackButton()
@@ -92,10 +92,6 @@ class SMGMenuController : NSObject {
 
 extension SMGMenuController : SMGMenu {
     
-    func setMainMenuIcon(icon: UIViewController) {
-        menuItemsController.createMainMenuIcon(icon)
-    }
-    
     func addMenuItem(itemId: String, iconTitle: String, iconFont: UIFont, icon: UIViewController, page: UIViewController) {
         
         menuItemsController.createMenuItem(itemId, iconTitle: iconTitle, iconFont: iconFont, icon: icon, page: page)
@@ -108,6 +104,18 @@ extension SMGMenuController : SMGMenu {
     func selectMenuItem(itemId:String) {
         menuItemsModel.currentItemId = itemId
     }
+    
+    
+    
+    func setMenuButtonIcon(iconImage: UIImage) {
+        mainIconViewController.didSetMenuButtonIcon(iconImage)
+    }
+    
+    func setBackButtonIcon(iconImage: UIImage) {
+        mainIconViewController.didSetBackButtonIcon(iconImage)
+    }
+    
+    
     
     func pushBackButton( backButtonBlock:SMGBackButtonBlock ) {
         backButtonController.pushBackButton(backButtonBlock)

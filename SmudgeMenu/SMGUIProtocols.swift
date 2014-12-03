@@ -16,7 +16,6 @@ These protocols are used throughout the UI layer. They qualify how non-UI contro
     optional func didUpdateCurrentMenuItem( newItemId:String )
     optional func didAddMenuIcon(itemId:String, iconTitle:String, iconFont:UIFont, menuIcon:UIViewController )
     optional func didAddMenuPage(itemId:String, menuPage:UIViewController )
-    optional func didSetMainMenuIcon(mainMenuIcon:UIViewController )
 }
 
 @objc protocol SMGSmudgeOpenCloseResponder : SMGResponder {
@@ -37,6 +36,11 @@ These protocols are used throughout the UI layer. They qualify how non-UI contro
     func didPushBackButton()
     func didPopBackButton()
     func didUpdateBackButtonStackHeight(newHeight:Int)
+}
+
+@objc protocol SMGIconConfigResponder : SMGResponder {
+    func didSetMenuButtonIcon( iconImage:UIImage )
+    func didSetBackButtonIcon( iconImage:UIImage )
 }
 
 
