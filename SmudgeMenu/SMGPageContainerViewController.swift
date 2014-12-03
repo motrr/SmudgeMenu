@@ -13,7 +13,7 @@ class SMGPageContainerViewController : UIViewController {
     
     var pageViewController:UIViewController! {
         didSet {
-            self.addFullscreenChildViewController(self.pageViewController)
+            self.addFullscreenChildViewControllerHelper(self.pageViewController)
         }
     }
 }

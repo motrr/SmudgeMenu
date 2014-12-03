@@ -6,7 +6,7 @@ import UIKit
 
 extension UIViewController {
     
-    func addFullscreenChildViewController(child:UIViewController, previousChild:UIViewController?) {
+    func addFullscreenChildViewControllerHelper(child:UIViewController, previousChild:UIViewController?) {
         
         previousChild?.willMoveToParentViewController(nil)
         
@@ -21,7 +21,7 @@ extension UIViewController {
         child.didMoveToParentViewController(self)
     }
 
-    func addFullscreenChildViewController(child:UIViewController) {
+    func addFullscreenChildViewControllerHelper(child:UIViewController) {
         self.addChildViewController(child)
         self.view.addSubview(child.view)
         child.view.snp_makeConstraints { make in
@@ -35,5 +35,11 @@ extension UIViewController {
         self.addChildViewController(child)
         self.view.addSubview(child.view)
         child.didMoveToParentViewController(self)
+    }
+    
+    func removeChildViewControllerHelper(child:UIViewController) {
+        child.willMoveToParentViewController(nil)
+        child.view.removeFromSuperview()
+        child.removeFromParentViewController()
     }
 }

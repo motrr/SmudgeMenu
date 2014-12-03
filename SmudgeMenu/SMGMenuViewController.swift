@@ -27,10 +27,10 @@ class SMGMenuViewController : UIViewController {
     var menuController:SMGMenuController!
     
     var pagesViewController:SMGPagesViewController! {
-        didSet {addFullscreenChildViewController(pagesViewController)}
+        didSet {addFullscreenChildViewControllerHelper(pagesViewController)}
     }
     var smudgeMenuViewController:SMGSmudgeMenuViewController! {
-        didSet {addFullscreenChildViewController(smudgeMenuViewController)}
+        didSet {addFullscreenChildViewControllerHelper(smudgeMenuViewController)}
     }
     
     override func viewDidLoad() {
@@ -51,9 +51,7 @@ class SMGMenuViewController : UIViewController {
 */
 
 extension SMGMenuViewController : SMGMenu {
-    func setMainMenuIconFromModel(iconModel: SMGMainMenuIconModel) { menuController.setMainMenuIconFromModel(iconModel) }
     func setMainMenuIcon(icon: UIViewController) { menuController.setMainMenuIcon(icon) }
-    func addMenuItem(newItem:SMGMenuItemModel) { menuController.addMenuItem(newItem) }
     func addMenuItem(itemId: String, iconTitle: String, iconFont: UIFont, icon: UIViewController, page: UIViewController)
         {menuController.addMenuItem(itemId, iconTitle:iconTitle, iconFont:iconFont, icon:icon, page:page)}
     func selectMenuItem(itemId:String) { menuController.selectMenuItem(itemId) }

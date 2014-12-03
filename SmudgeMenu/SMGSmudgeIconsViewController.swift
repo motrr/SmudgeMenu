@@ -6,14 +6,10 @@ import UIKit
 
 class SMGSmudgeIconsViewController : UIViewController {
     
-    var mainMenuIconSize = CGSize(width:18, height:18)
-    var mainMenuTapAreaSize = CGSize(width:90, height:90)
-    
     var maxIconSize = CGSize(width:100, height:100)
     var maxCurveWidth:CGFloat = 0
     var curve:SMGBezierCurve!
     var iconContainers:[SMGSmudgeIconContainerViewController] = Array<SMGSmudgeIconContainerViewController>()
-    var mainMenuIconContainer:SMGMainMenuIconContainerViewController?
     
     override func loadView() {
         self.view = SMGNoHitView()
@@ -31,7 +27,6 @@ class SMGSmudgeIconsViewController : UIViewController {
             for iconContainer in iconContainers {
                 iconContainer.openCloseUpdater = self.openCloseUpdater
             }
-            mainMenuIconContainer?.openCloseUpdater = self.openCloseUpdater
         }
     }
     
@@ -58,9 +53,6 @@ class SMGSmudgeIconsViewController : UIViewController {
             iconContainer.xConstraint.constant = position.x
             iconContainer.yConstraint.constant = position.y
         }
-        
-        mainMenuIconContainer?.xConstraint.constant = curve.a.x
-        mainMenuIconContainer?.yConstraint.constant = curve.a.y
     }
     
 }
@@ -88,38 +80,6 @@ extension SMGSmudgeIconsViewController : SMGMenuItemsResponder {
         
         updateIconSizes()
     }
-    
-    func didSetMainMenuIcon(mainMenuIcon: UIViewController) {
-        
-        if let previousMainMenuIconContainer = mainMenuIconContainer {
-            previousMainMenuIconContainer.willMoveToParentViewController(nil)
-            previousMainMenuIconContainer.view.removeFromSuperview()
-            previousMainMenuIconContainer.removeFromParentViewController()
-        }
-        
-        mainMenuIconContainer = SMGMainMenuIconContainerViewController()
-        self.addChildViewControllerHelper(mainMenuIconContainer!)
-        
-        mainMenuIconContainer!.xConstraint = centerX(mainMenuIconContainer!.view) => left(self.view)
-        mainMenuIconContainer!.yConstraint = centerY(mainMenuIconContainer!.view) => top(self.view)
-        mainMenuIconContainer!.view.snp_makeConstraints() { make in
-            make.width.equalTo( self.mainMenuTapAreaSize.width )
-            make.height.equalTo( self.mainMenuTapAreaSize.height )
-        }
-        
-        mainMenuIconContainer!.iconViewController = mainMenuIcon
-        mainMenuIconContainer!.iconViewController.view.snp_makeConstraints() { make in
-            make.width.equalTo( self.mainMenuIconSize.width )
-            make.height.equalTo( self.mainMenuIconSize.height )
-        }
-        
-        mainMenuIconContainer!.mainIconXConstraint = centerX(mainMenuIcon.view) => centerX(self.mainMenuIconContainer!.view)
-        mainMenuIconContainer!.mainIconYConstraint = centerY(mainMenuIcon.view) => centerY(self.mainMenuIconContainer!.view)
-        
-        mainMenuIconContainer?.openCloseUpdater = self.openCloseUpdater
-        
-        updateIconSizes()
-    }
 }
 
 extension SMGSmudgeIconsViewController : SMGCurveResponder {
@@ -142,8 +102,6 @@ extension SMGSmudgeIconsViewController : SMGTransitionResponder {
         for iconContainer in iconContainers {
             iconContainer.didUpdateTransitionProgress(newProgress)
         }
-        
-        mainMenuIconContainer?.didUpdateTransitionProgress(newProgress)
     }
 }
 

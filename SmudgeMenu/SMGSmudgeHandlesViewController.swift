@@ -124,9 +124,9 @@ class SMGSmudgeHandlesViewController : UIViewController {
     }
     
     func updateDyanmics() {
-        handleAAttachment.anchorPoint = handleAViewController.centrePointFromConstraints!
+        handleAAttachment.anchorPoint = handleAViewController.pointFromConstraints!
         handleAAttachment.length = 0
-        handleBAttachment.anchorPoint = handleBViewController.centrePointFromConstraints!
+        handleBAttachment.anchorPoint = handleBViewController.pointFromConstraints!
         handleBAttachment.length = 0
     }
     
@@ -193,12 +193,12 @@ extension SMGSmudgeHandlesViewController : SMGSmudgeHandleViewControllerDelegate
     func handlesSnappedOpen(freeHandle:SMGSmudgeHandleViewController, anchoredHandle:SMGSmudgeHandleViewController) {
         
         if freeHandle.xConstraint?.constant < anchoredHandle.xConstraint?.constant {
-            handleLeftSnapPoint = freeHandle.centrePointFromConstraints
-            handleRightSnapPoint = anchoredHandle.centrePointFromConstraints
+            handleLeftSnapPoint = freeHandle.pointFromConstraints
+            handleRightSnapPoint = anchoredHandle.pointFromConstraints
         }
         else {
-            handleLeftSnapPoint = anchoredHandle.centrePointFromConstraints
-            handleRightSnapPoint = freeHandle.centrePointFromConstraints
+            handleLeftSnapPoint = anchoredHandle.pointFromConstraints
+            handleRightSnapPoint = freeHandle.pointFromConstraints
         }
     }
     
@@ -206,13 +206,13 @@ extension SMGSmudgeHandlesViewController : SMGSmudgeHandleViewControllerDelegate
         
         if freeHandle.xConstraint?.constant < self.view.frame.size.width / 2 {
             preferredEdge = .Left
-            handleLeftSnapPoint = freeHandle.centrePointFromConstraints
+            handleLeftSnapPoint = freeHandle.pointFromConstraints
             handleRightSnapPoint = nil
         }
         else {
             preferredEdge = .Right
             handleLeftSnapPoint = nil
-            handleRightSnapPoint = freeHandle.centrePointFromConstraints
+            handleRightSnapPoint = freeHandle.pointFromConstraints
         }
     }
 }
@@ -223,8 +223,8 @@ extension SMGSmudgeHandlesViewController : SMGSmudgeOpenCloseResponder {
         
         generateSnapPoints()
         
-        handleAViewController.centrePointFromConstraints = handleLeftSnapPoint
-        handleBViewController.centrePointFromConstraints = handleRightSnapPoint
+        handleAViewController.pointFromConstraints = handleLeftSnapPoint
+        handleBViewController.pointFromConstraints = handleRightSnapPoint
         
         updateAnimatorWithHandles()
     }
@@ -237,8 +237,8 @@ extension SMGSmudgeHandlesViewController : SMGSmudgeOpenCloseResponder {
         if self.preferredEdge == SMGPreferredEdge.Left {closePoint = handleLeftSnapPoint!}
         else {closePoint = handleRightSnapPoint!}
         
-        handleAViewController.centrePointFromConstraints = closePoint
-        handleBViewController.centrePointFromConstraints = closePoint
+        handleAViewController.pointFromConstraints = closePoint
+        handleBViewController.pointFromConstraints = closePoint
         
         updateAnimatorWithHandles()
     }
@@ -253,18 +253,15 @@ extension SMGSmudgeHandlesViewController : SMGSmudgeOpenCloseResponder {
         
         if handleRightSnapPoint == nil && handleLeftSnapPoint == nil {
             handleLeftSnapPoint = handleInitPoint
-            handleLeftSnapPoint?.y += 30
         }
         
         if handleRightSnapPoint == nil {
             handleRightSnapPoint = handleLeftSnapPoint
-            handleRightSnapPoint?.y += 30
             handleRightSnapPoint?.x = self.view.frame.size.width - handleEdgeInsets.right
         }
         
         if handleLeftSnapPoint == nil {
             handleLeftSnapPoint = handleRightSnapPoint
-            handleLeftSnapPoint?.y += 30
             handleLeftSnapPoint?.x = handleEdgeInsets.left
         }
     }

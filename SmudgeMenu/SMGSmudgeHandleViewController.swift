@@ -4,27 +4,10 @@
 
 import UIKit
 
-class SMGSmudgeHandleViewController : UIViewController {
+class SMGSmudgeHandleViewController : SMGXYConstraintViewController {
     
     var handleView:SMGSmudgeHandleView {
         return self.view as SMGSmudgeHandleView
-    }
-    
-    var xConstraint:NSLayoutConstraint?
-    var yConstraint:NSLayoutConstraint?
-    
-    var centrePointFromConstraints:CGPoint? {
-        get {
-            if xConstraint != nil && yConstraint != nil {
-                return CGPoint(x: xConstraint!.constant, y: yConstraint!.constant)
-            } else { return nil }
-        }
-        set {
-            if newValue != nil && xConstraint != nil && yConstraint != nil {
-                xConstraint?.constant = newValue!.x
-                yConstraint?.constant = newValue!.y
-            }
-        }
     }
     
     var edgeInsets = UIEdgeInsetsZero

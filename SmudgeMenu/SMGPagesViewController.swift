@@ -80,7 +80,7 @@ extension SMGPagesViewController : SMGMenuItemsResponder {
     }
     
     func setupInitialPage(initialPage:SMGPageContainerViewController) {
-        self.addFullscreenChildViewController(initialPage)
+        self.addFullscreenChildViewControllerHelper(initialPage)
         currentPage = initialPage
     }
 }

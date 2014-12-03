@@ -39,7 +39,7 @@ class SMGTappableView : UIView {
     func didTap(tg:UITapGestureRecognizer) {
         
         if (tappable) {
-           delegate!.viewWasTapped(tg.locationInView(self))
+           delegate?.viewWasTapped(tg.locationInView(self))
         }
     }
 }

@@ -10,20 +10,20 @@ class SMGSmudgeMenuViewController : UIViewController {
     var handleBTapRecogniser:UITapGestureRecognizer!
     
     var smudgeViewController:SMGSmudgeViewController! {
-        didSet {addFullscreenChildViewController(smudgeViewController)}
+        didSet {addFullscreenChildViewControllerHelper(smudgeViewController)}
     }
-    
     var smudgeDebugViewController:SMGSmudgeDebugViewController!
     {
-        didSet {addFullscreenChildViewController(smudgeDebugViewController)}
+        didSet {addFullscreenChildViewControllerHelper(smudgeDebugViewController)}
     }
-    
-    var iconsViewController:SMGSmudgeIconsViewController! {
-        didSet {addFullscreenChildViewController(iconsViewController)}
+    var smudgeIconsViewController:SMGSmudgeIconsViewController! {
+        didSet {addFullscreenChildViewControllerHelper(smudgeIconsViewController)}
     }
-
+    var mainIconViewController:SMGMainIconViewController!  {
+        didSet {addFullscreenChildViewControllerHelper(mainIconViewController)}
+    }
     var handlesViewController:SMGSmudgeHandlesViewController!  {
-        didSet {addFullscreenChildViewController(handlesViewController)}
+        didSet {addFullscreenChildViewControllerHelper(handlesViewController)}
     }
     
     override func loadView() {
@@ -34,7 +34,8 @@ class SMGSmudgeMenuViewController : UIViewController {
         super.viewDidLoad()
         
         smudgeViewController = SMGSmudgeViewController()
-        iconsViewController = SMGSmudgeIconsViewController()
+        smudgeIconsViewController = SMGSmudgeIconsViewController()
+        mainIconViewController = SMGMainIconViewController()
         smudgeDebugViewController = SMGSmudgeDebugViewController()
         handlesViewController = SMGSmudgeHandlesViewController()
         
@@ -64,19 +65,17 @@ class SMGSmudgeMenuViewController : UIViewController {
     
     func didTap(sender:UITapGestureRecognizer) {
         
-        for iconContainer in iconsViewController.iconContainers {
-            if tapTest(iconContainer, sender: sender) {break}
+        for iconContainer in smudgeIconsViewController.iconContainers {
+            if tapTest(iconContainer.tappableView, sender: sender) {return}
         }
-        
-        if (iconsViewController.mainMenuIconContainer != nil) {
-            tapTest(iconsViewController.mainMenuIconContainer!, sender: sender)
-        }
+        tapTest(mainIconViewController.stackContainer.tappableView, sender: sender)
     }
     
-    func tapTest(iconContainer:SMGIconContainerViewController, sender:UITapGestureRecognizer) -> Bool {
-        let tapLocation = sender.locationInView(iconContainer.view)
-        if iconContainer.view.hitTest(tapLocation, withEvent: nil) == iconContainer.view {
-            iconContainer.didTap(sender)
+    func tapTest(tappableView:SMGTappableView, sender:UITapGestureRecognizer) -> Bool {
+        
+        let tapLocation = sender.locationInView(tappableView)
+        if tappableView.hitTest(tapLocation, withEvent: nil) == tappableView {
+            tappableView.didTap(sender)
             return true
         }
         return false

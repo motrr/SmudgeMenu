@@ -4,7 +4,7 @@
 
 import UIKit
 
-class SMGSmudgeIconContainerViewController : SMGIconContainerViewController {
+class SMGSmudgeIconContainerViewController : SMGXYConstraintViewController {
 
     var currentMenuItemUpdater:SMGCurrentMenuItemUpdater?
     var openCloseUpdater:SMGSmudgeOpenCloseUpdater?
@@ -13,14 +13,16 @@ class SMGSmudgeIconContainerViewController : SMGIconContainerViewController {
     var iconViewController:UIViewController!
     var iconTitleLabel:UILabel!
     
+    var tappableView:SMGTappableView {return self.view as SMGTappableView}
+    
+    override func loadView() {
+        self.view = SMGTappableView()
+        tappableView.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.clearColor()
-    }
-    
-    override func didTap(sender:UITapGestureRecognizer) {
-        currentMenuItemUpdater?.updateCurrentMenuItem(itemId)
-        openCloseUpdater?.closeHandles()
     }
     
     func setIcon(iconViewController:UIViewController, title:String, font:UIFont) {
@@ -48,6 +50,14 @@ class SMGSmudgeIconContainerViewController : SMGIconContainerViewController {
             make.left.right.and.bottom.equalTo(self.view)
             return
         }
+    }
+}
+
+extension SMGSmudgeIconContainerViewController : SMGTappableViewDelegate {
+    
+    func viewWasTapped(location: CGPoint) {
+        currentMenuItemUpdater?.updateCurrentMenuItem(itemId)
+        openCloseUpdater?.closeHandles()
     }
 }
 

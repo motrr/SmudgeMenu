@@ -10,17 +10,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         var menu = SMGMenuViewController()
-        self.addFullscreenChildViewController(menu)
+        self.addFullscreenChildViewControllerHelper(menu)
         
         for sharedId in ["PageA","PageB","PageC","PageD"] {
-            var page = SMGPageModel(storyboardId:"Pages", viewControllerId:sharedId )
-            var icon = SMGIconModel(storyboardId:"Icons", viewControllerId:sharedId )
-            icon.titleText = "Sample Text"
-            var item = SMGMenuItemModel(itemId: sharedId, pageModel:page, iconModel: icon)
-            menu.addMenuItem( item )
+            var page = instantiateViewController("Pages", viewControllerId:sharedId )
+            var icon = instantiateViewController("Icons", viewControllerId:sharedId )
+            var titleText = "Sample Text"
+            var iconFont = UIFont.systemFontOfSize(UIFont.systemFontSize())
+            menu.addMenuItem(sharedId, iconTitle: titleText, iconFont: iconFont, icon: icon, page: page)
         }
-        
-        var mainMenuIconModel = SMGMainMenuIconModel(storyboardId:"Icons", viewControllerId:"MainMenu")
-        menu.setMainMenuIconFromModel( mainMenuIconModel )
+    }
+    
+    func instantiateViewController(storyboardId:String, viewControllerId:String) -> UIViewController {
+        var storyboard = UIStoryboard(name:storyboardId , bundle: NSBundle.mainBundle())
+        var viewController = storyboard.instantiateViewControllerWithIdentifier(viewControllerId) as UIViewController
+        return viewController
     }
 }

@@ -55,3 +55,8 @@ protocol SMGSmudgeOpenCloseUpdater {
 protocol SMGCurrentMenuItemUpdater {
     func updateCurrentMenuItem( newItemId:String )
 }
+
+protocol SMGBackButtonUpdater {
+    func pushBackButton(backButtonBlock:SMGBackButtonBlock)
+    func popBackButton(executeBlock:Bool)
+}

@@ -19,7 +19,7 @@ class SMGBackButtonController: SMGModelObserveNotifyController {
     override func initialiseResponder(responder: SMGResponder) {
         // Nothing to initialise
     }
-    
+
     override func notifyResponder(responder: SMGResponder, keyPath:String) {
         
         let backButtonResponder = responder as SMGBackButtonResponder
@@ -45,7 +45,7 @@ class SMGBackButtonController: SMGModelObserveNotifyController {
     }
 }
 
-extension SMGBackButtonController {
+extension SMGBackButtonController : SMGBackButtonUpdater {
     
     func pushBackButton(backButtonBlock:SMGBackButtonBlock) {
         
@@ -66,7 +66,7 @@ extension SMGBackButtonController {
         }
     }
     
-    func popBackButton() {
+    func popBackButton(executeBlock:Bool) {
         var currentStack:[SMGBackButtonBlock]
         if let itemId = menuItemsModel.currentItemId {
             if menuItemsModel.backButtonStacks[itemId] != nil {
@@ -76,7 +76,7 @@ extension SMGBackButtonController {
                     var backButtonBlock:SMGBackButtonBlock = currentStack.removeLast()
                     menuItemsModel.backButtonStacks[itemId] = currentStack
                     
-                    backButtonBlock()
+                    if (executeBlock) { backButtonBlock() }
                     
                     for responder in responders {
                         let backButtonResponder = responder as SMGBackButtonResponder
