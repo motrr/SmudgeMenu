@@ -10,8 +10,6 @@ class SMGSmudgeHandleViewController : SMGXYConstraintViewController {
         return self.view as SMGSmudgeHandleView
     }
     
-    var edgeInsets = UIEdgeInsetsZero
-    
     var delegate:SMGSmudgeHandleViewControllerDelegate?
     
     private var initDragPosition:CGPoint!
@@ -30,7 +28,7 @@ class SMGSmudgeHandleViewController : SMGXYConstraintViewController {
 }
 
 protocol SMGSmudgeHandleViewControllerDelegate {
-    func handleDidMove(handle:SMGSmudgeHandleViewController)
+    func handleDidMove(handle:SMGSmudgeHandleViewController, newPosition:CGPoint)
     func handleDidFinishMoving(handle:SMGSmudgeHandleViewController)
 }
 
@@ -46,37 +44,13 @@ extension SMGSmudgeHandleViewController : SMGDraggableViewDelegate {
  
     func viewWasDragged(translation:CGPoint) {
         if initDragPosition != nil {
-            
             let newPosition = initDragPosition + translation
-            let adjustedNewPosition =
-                newPosition.confineToSizeWithEdgeInset(self.view.superview!.frame.size, insets: edgeInsets)
-            
-            xConstraint!.constant = adjustedNewPosition.x
-            yConstraint!.constant = adjustedNewPosition.y
-
-            delegate?.handleDidMove(self)
+            delegate?.handleDidMove(self, newPosition: newPosition)
         }
     }
 
     func viewDidFinishDragging() {
-        
         initDragPosition = nil
-        
-        var position = CGPoint(x: xConstraint!.constant, y: yConstraint!.constant)
-        let superviewWidth = self.view.superview!.frame.size.width
-        
-        if position.x > superviewWidth / 2.0 {
-            position.x = superviewWidth - edgeInsets.right
-        }
-        else {
-            position.x = edgeInsets.left
-        }
-        
-        let adjustedNewPosition =
-            position.confineToSizeWithEdgeInset(self.view.superview!.frame.size, insets: edgeInsets)
-        xConstraint!.constant = adjustedNewPosition.x
-        yConstraint!.constant = adjustedNewPosition.y
-        
         delegate?.handleDidFinishMoving(self)
     }
 }

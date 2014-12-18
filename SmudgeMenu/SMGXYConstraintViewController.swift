@@ -9,7 +9,7 @@ class SMGXYConstraintViewController : UIViewController {
     var xConstraint:NSLayoutConstraint!
     var yConstraint:NSLayoutConstraint!
     
-    var pointFromConstraints:CGPoint? {
+    var constraintsAsPoint:CGPoint? {
         get {
             if xConstraint != nil && yConstraint != nil {
                 return CGPoint(x: xConstraint!.constant, y: yConstraint!.constant)

@@ -62,7 +62,7 @@ extension SMGMainIconViewController : SMGIconConfigResponder {
 extension SMGMainIconViewController : SMGCurveResponder {
     
     func didUpdateCurve(curve: SMGBezierCurve) {
-        stackContainer.pointFromConstraints = curve.a
+        stackContainer.constraintsAsPoint = curve.a
     }
 }
 

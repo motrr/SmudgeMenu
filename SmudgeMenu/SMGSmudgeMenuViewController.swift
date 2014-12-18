@@ -44,7 +44,7 @@ class SMGSmudgeMenuViewController : UIViewController {
         */
         
         smudgeDebugViewController.view.hidden = true
-        //iconsViewController.view.hidden = true
+        //smudgeIconsViewController.view.hidden = true
         //smudgeViewController.view.hidden = true
         //handlesViewController.view.hidden = true
         
